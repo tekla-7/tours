@@ -1,0 +1,167 @@
+.container {
+  width: 100vw;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding-top: 0;
+  background-color: white;
+  .top-bar {
+    height: 64px;
+    padding: 12px 80px 12px 80px;
+
+    .logo {
+      background-color: white;
+      padding-right: 10px;
+
+      img {
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    .phone {
+      width: 159px;
+      padding: 2px 16px 2px 16px;
+      color: var(--text-color-1, #272727);
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+      background-color: white;
+      cursor: pointer;
+
+      img {
+
+        width: 24px;
+        padding-right: 8px;
+        padding-top: 6px;
+      }
+    }
+
+    .search {
+      width: 510px;
+
+    }
+
+    input[type=text] {
+      width: 510px;
+      box-sizing: border-box;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 2px solid #DCE7EF;
+      background-color: white;
+      background-image: url('https://www.pngkey.com/png/full/898-8985858_search-green-search-icon-transparent-background.png');
+      background-position: 7px 7px;
+      background-repeat: no-repeat;
+      background-size: 15px 15px;
+      padding: 5px 20px 5px 40px;
+      color: #656666;
+      font-family: "Noto Sans Georgian";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 19px;
+
+    }
+
+    .myprofile {
+
+      background-color: white;
+
+      .trips {
+        position: relative;
+        margin-right: 16px;
+        margin-left: 10px;
+        cursor: pointer;
+        img {
+          width: 25px;
+          flex-shrink: 0;
+          padding-bottom: 4px;
+        }
+
+        .pieces {
+          position: absolute;
+          top: 0px;
+          left: 15px;
+          width: 16px;
+          height: 16px;
+          border-radius: 16px;
+          background-color: #0AC2A1;
+          opacity: 0.9;
+          padding-left: 5px;
+
+          span {
+            position: absolute;
+            color: #FFF;
+            top: 3px;
+            font-family: Inter;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: 500;
+
+          }
+          
+        }
+.name {
+          color: var(--text-color-1, #272727);
+          font-family: "Noto Sans Georgian";
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px;
+          padding-left: 7px;
+        }
+        
+
+
+
+      }
+
+      .profile-icon {
+        margin-right: 10px;
+        cursor: pointer;
+        img {
+          height: 30px;
+          width: 30px;
+        }
+      }
+    }
+
+
+
+
+
+  }
+
+  .bottom-bar {
+    border-top: 1px solid #D9F3E4;
+    border-bottom: 1px solid #D9F3E4;
+    padding-left: 80px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: white;
+
+    div {
+      padding: 10px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-right: 32px;
+      color: var(--text-color-1, #272727);
+      font-family: "Noto Sans Georgian";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+      &:hover{
+        color:  var(--primary, #0AC2A1);
+        cursor: pointer;
+      }
+    }
+
+  }
+
+
+
+}

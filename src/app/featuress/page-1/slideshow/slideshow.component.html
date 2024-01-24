@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="slides">
+    <div
+      class="slide"
+      [ngStyle]="{
+        'background-image': 'url(' + slides[currentSlide].url + ')'
+      }"
+    >
+      <div class="text">აღმოაჩინე საქართველო</div>
+    </div>
+  </div>
+  <br />
+
+  <div style="text-align: center">
+    <div
+      class="dot"
+      (click)="ToSlide(i)"
+      *ngFor="let slide of slides; let i = index"
+      [ngClass]="{ active: i == currentSlide }"
+    ></div>
+  </div>
+</div>
