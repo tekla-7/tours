@@ -1,22 +1,52 @@
 <div class="container">
-  <div class="slides">
-    <div
-      class="slide"
-      [ngStyle]="{
-        'background-image': 'url(' + slides[currentSlide].url + ')'
-      }"
-    >
-      <div class="text">აღმოაჩინე საქართველო</div>
+  <div class="show">
+    <div class="slides">
+      <div
+        class="slide"
+        [ngStyle]="{
+          'background-image': 'url(' + slides[currentSlide].url + ')'
+        }"
+      >
+        <div class="text">აღმოაჩინე საქართველო</div>
+      </div>
+    </div>
+    <br />
+    <div style="text-align: center">
+      <div
+        class="dot"
+        (click)="ToSlide(i)"
+        *ngFor="let slide of slides; let i = index"
+        [ngClass]="{ active: i == currentSlide }"
+      ></div>
     </div>
   </div>
-  <br />
-
-  <div style="text-align: center">
-    <div
-      class="dot"
-      (click)="ToSlide(i)"
-      *ngFor="let slide of slides; let i = index"
-      [ngClass]="{ active: i == currentSlide }"
-    ></div>
+  <div class="trending">
+    <div class="text flex-center flex-column">
+      <div class="popular">პოპულარული ახლა</div>
+      <div class="flex-row-center all">
+        <span>ყველას ნახვა</span>
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+          >
+            <path
+              d="M1.16669 7H12.8334M12.8334 7L7.58335 1.75M12.8334 7L7.58335 12.25"
+              stroke="#272727"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+    <div class="popular-tour flex-row ">
+      <ng-container *ngFor="let ture of turelist ; let i = index">
+        <app-trending
+          [ture]="ture"
+        ></app-trending>
+      </ng-container>
+    </div>
   </div>
 </div>
