@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { InformationService } from './information.service';
-import {tureDataType} from '../../../core/tour.interfaces'
+import { tureDataType } from '../../../core/tour.interfaces';
 @Component({
   selector: 'app-slideshow',
   templateUrl: './slideshow.component.html',
@@ -37,14 +37,16 @@ export class SlideshowComponent implements OnInit {
   interval: any;
   currentSlide: number = 0;
   turelist: tureDataType[] = [];
+topture:tureDataType[]=[];
   ngOnInit(): void {
     this.interval = setInterval(() => {
       this.next();
     }, 3000);
   }
-  constructor(private information:InformationService) {
+  constructor(private information: InformationService) {
     this.turelist = this.information.get();
-     console.log(this.turelist);
+    console.log(this.turelist);
+    
   }
   next() {
     if (this.currentSlide == this.slides.length) {
@@ -59,5 +61,16 @@ export class SlideshowComponent implements OnInit {
     this.interval = setInterval(() => {
       this.next();
     }, 3000);
+  }
+  nextPicture() {
+    let obj: tureDataType = this.turelist[0];
+    this.turelist.splice(0, 1);
+    this.turelist.push(obj);
+ 
+  }
+  prePicture() {
+    let obj: tureDataType = this.turelist[this.turelist.length - 1];
+    this.turelist.splice(this.turelist.length - 1, 1);
+    this.turelist.splice(0, 0, obj);
   }
 }

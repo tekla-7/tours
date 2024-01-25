@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {tureDataType} from '../../../core/tour.interfaces'
+import { tureDataType } from '../../../core/tour.interfaces';
 @Injectable({
   providedIn: 'root',
 })
 export class InformationService {
   constructor(private http: HttpClient) {}
-  get() {let arrlist: tureDataType[] = [];
-   this.http.get<any>('http://localhost:3000/post').subscribe((elements) => {
+  get() {
+    let arrlist: tureDataType[] = [];
+    this.http.get<any>('http://localhost:3000/post').subscribe((elements) => {
       for (let element of elements) {
-        let obj:tureDataType = {};
+        let obj: tureDataType = {};
         obj.id = element.id;
         obj.title = element.title;
         obj.img = element.img;
@@ -26,6 +27,9 @@ export class InformationService {
         arrlist.push(obj);
       }
     });
-    return  arrlist;
+    
+
+    return arrlist;
   }
+  
 }

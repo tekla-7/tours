@@ -9,7 +9,7 @@ export interface tureDataType{
     Location?: String;
     Difficulty?: String;
     totaldistance?: String;
-    Views?: String;
+    Views?: number;
     Rate?: String;
     Thetourincludes?: String;
  }

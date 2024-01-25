@@ -41,12 +41,126 @@
         </span>
       </div>
     </div>
-    <div class="popular-tour flex-row ">
-      <ng-container *ngFor="let ture of turelist ; let i = index">
-        <app-trending
-          [ture]="ture"
-        ></app-trending>
-      </ng-container>
+    <div class="popular-tour flex-center  ">
+      <div class="prev-picture button" (click)="prePicture()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+          <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            fill="#1b1b1b"
+            d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+          />
+        </svg>
+      </div>
+      <div class="list">
+        <ng-container *ngFor="let ture of turelist; let i = index">
+          <app-trending [ture]="ture"></app-trending>
+        </ng-container>
+      </div>
+      <div class="next-picture button" (click)="nextPicture()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+          <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            fill="#1b1b1b"
+            d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+          />
+        </svg>
+      </div>
     </div>
+  </div>
+  <div class="trending">
+    <div class="text flex-center flex-column">
+      <div class="popular">დღის შეთავაზებები</div>
+      <div class="flex-row-center all">
+        <span>ყველას ნახვა</span>
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+          >
+            <path
+              d="M1.16669 7H12.8334M12.8334 7L7.58335 1.75M12.8334 7L7.58335 12.25"
+              stroke="#272727"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+    <div class="popular-tour flex-center  ">
+      <div class="prev-picture button" (click)="prePicture()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+          <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            fill="#1b1b1b"
+            d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+          />
+        </svg>
+      </div>
+      <div class="list">
+        <ng-container *ngFor="let ture of turelist; let i = index">
+          <app-offersoftheday [ture]="ture"></app-offersoftheday>
+        </ng-container>
+      </div>
+      <div class="next-picture button" (click)="nextPicture()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+          <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            fill="#1b1b1b"
+            d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+          />
+        </svg>
+      </div>
+    </div>
+    
+  </div>
+  <div class="trending">
+    <div class="text flex-center flex-column">
+      <div class="popular">ტოპ შეთავაზებები</div>
+      <div class="flex-row-center all">
+        <span>ყველას ნახვა</span>
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+          >
+            <path
+              d="M1.16669 7H12.8334M12.8334 7L7.58335 1.75M12.8334 7L7.58335 12.25"
+              stroke="#272727"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+    <div class="popular-tour flex-center  ">
+      <div class="prev-picture button" (click)="prePicture()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+          <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            fill="#1b1b1b"
+            d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+          />
+        </svg>
+      </div>
+      <div class="list">
+        <ng-container *ngFor="let ture of turelist; let i = index">
+          <app-topoffers [ture]="ture"></app-topoffers>
+        </ng-container>
+      </div>
+      <div class="next-picture button" (click)="nextPicture()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+          <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            fill="#1b1b1b"
+            d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+          />
+        </svg>
+      </div>
+    </div>
+    
   </div>
 </div>

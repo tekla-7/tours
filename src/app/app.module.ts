@@ -8,6 +8,9 @@ import { SlideshowComponent } from './featuress/page-1/slideshow/slideshow.compo
 import { TrendingComponent } from './featuress/page-1/slideshow/trending/trending.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { OffersofthedayComponent } from './featuress/page-1/slideshow/offersoftheday/offersoftheday.component';
+import { TopoffersComponent } from './featuress/page-1/slideshow/topoffers/topoffers.component';
+import { FooterComponent } from './featuress/footer/footer.component';
 
 
 
@@ -17,6 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     TopNavigationBarComponent,
    SlideshowComponent,
    TrendingComponent,
+   OffersofthedayComponent,
+   TopoffersComponent,
+   FooterComponent,
   
   ],
   imports: [
