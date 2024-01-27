@@ -2,22 +2,20 @@
     padding-top: 24px;
     padding-bottom: 40px;
     background-color: #DCE2EA;
-
     .width {
-        width: 1280px;
-
+        width: 83.5vw;
         .link {
             cursor: pointer;
 
             &:hover {
                 color: var(--primary, #0AC2A1);
 
-                
-                    svg {
-                        width: 25px;
-                        height: 25px;
-                    }
-                
+
+                svg {
+                    width: 25px;
+                    height: 25px;
+                }
+
             }
         }
 

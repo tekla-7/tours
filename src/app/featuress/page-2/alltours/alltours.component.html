@@ -1,0 +1,412 @@
+<div class="container flex-column-center">
+  <div class="grid">
+<div>
+  <div class="flex-column">
+    <div
+      id="list1"
+      class="dropdown-check-list"
+      [ngClass]="isActive2 ? 'visible' : ''"
+    >
+      <span
+        class="anchor flex-row-center flex-column-space-between"
+        (click)="call(2)"
+      >
+        <span>ფასი</span>
+        <span *ngIf="isActive2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="7"
+            viewBox="0 0 12 7"
+            fill="none"
+          >
+            <path d="M11 6.5L6 1.5L1 6.5" stroke="#272727" />
+          </svg>
+        </span>
+        <span *ngIf="!isActive2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="7"
+            viewBox="0 0 12 7"
+            fill="none"
+          >
+            <path d="M1 0.5L6 5.5L11 0.5" stroke="#272727" />
+          </svg>
+        </span>
+      </span>
+      <ul class="items">
+        <li class="flex-row-center">
+          <input type="checkbox" [(ngModel)]="isChecked" /><span
+            class="flex-row-center"
+            >იმერეთი</span
+          >
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">კახეთი</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">აჭარა</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">სვანეთი</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center"
+            >მცხეთა-მთიანეთი</span
+          >
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center"
+            >შიდა ქართლი</span
+          >
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">გურია</span>
+        </li>
+      </ul>
+    </div>
+    <div
+      id="list1"
+      class="dropdown-check-list"
+      [ngClass]="isActive3 ? 'visible' : ''"
+    >
+      <span
+        class="anchor flex-row-center flex-column-space-between"
+        (click)="call(3)"
+      >
+        <span>ლოკაცია</span>
+        <span *ngIf="isActive3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="7"
+            viewBox="0 0 12 7"
+            fill="none"
+          >
+            <path d="M11 6.5L6 1.5L1 6.5" stroke="#272727" />
+          </svg>
+        </span>
+        <span *ngIf="!isActive3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="7"
+            viewBox="0 0 12 7"
+            fill="none"
+          >
+            <path d="M1 0.5L6 5.5L11 0.5" stroke="#272727" />
+          </svg>
+        </span>
+      </span>
+      <ul class="items">
+        <li class="flex-row-center">
+          <input type="checkbox" [(ngModel)]="isChecked" /><span
+            class="flex-row-center"
+            >იმერეთი</span
+          >
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">კახეთი</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">აჭარა</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">სვანეთი</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center"
+            >მცხეთა-მთიანეთი</span
+          >
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center"
+            >შიდა ქართლი</span
+          >
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center"
+            >სამცხე-ჯავახეთი</span
+          >
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">გურია</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">რაჭა</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">თბილისი</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center"
+            >სამეგრელო</span
+          >
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">ლეჩხუმი</span>
+        </li>
+      </ul>
+    </div>
+    <div
+      id="list1"
+      class="dropdown-check-list"
+      [ngClass]="isActive4 ? 'visible' : ''"
+    >
+      <span
+        class="anchor flex-row-center flex-column-space-between"
+        (click)="call(4)"
+      >
+        <span>კატეგორია</span>
+        <span *ngIf="isActive4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="7"
+            viewBox="0 0 12 7"
+            fill="none"
+          >
+            <path d="M11 6.5L6 1.5L1 6.5" stroke="#272727" />
+          </svg>
+        </span>
+        <span *ngIf="!isActive4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="7"
+            viewBox="0 0 12 7"
+            fill="none"
+          >
+            <path d="M1 0.5L6 5.5L11 0.5" stroke="#272727" />
+          </svg>
+        </span>
+      </span>
+      <ul class="items">
+        <li class="flex-row-center">
+          <input type="checkbox" [(ngModel)]="isChecked" /><span
+            class="flex-row-center"
+            >ტბა</span
+          >
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">ჩანჩქერი</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">კანიონი</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">მთა</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center"
+            >უღელტეხილი</span
+          >
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">მღვიმე</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">ხეობა</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center"
+            >ეროვნული პარკი</span
+          >
+        </li>
+      </ul>
+    </div>
+    <div
+      id="list1"
+      class="dropdown-check-list"
+      [ngClass]="isActive5 ? 'visible' : ''"
+    >
+      <span
+        class="anchor flex-row-center flex-column-space-between"
+        (click)="call(5)"
+      >
+        <span>ხანგრძლივობა</span>
+        <span *ngIf="isActive5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="7"
+            viewBox="0 0 12 7"
+            fill="none"
+          >
+            <path d="M11 6.5L6 1.5L1 6.5" stroke="#272727" />
+          </svg>
+        </span>
+        <span *ngIf="!isActive5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="7"
+            viewBox="0 0 12 7"
+            fill="none"
+          >
+            <path d="M1 0.5L6 5.5L11 0.5" stroke="#272727" />
+          </svg>
+        </span>
+      </span>
+      <ul class="items">
+        <li class="flex-row-center">
+          <input type="checkbox" [(ngModel)]="isChecked" /><span
+            class="flex-row-center"
+            >1 დღე</span
+          >
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">2 დღე</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">3 დღე</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center"
+            >3 დღეზე მეტი</span
+          >
+        </li>
+      </ul>
+    </div>
+    <div
+      id="list1"
+      class="dropdown-check-list"
+      [ngClass]="isActive6 ? 'visible' : ''"
+    >
+      <span
+        class="anchor flex-row-center flex-column-space-between"
+        (click)="call(6)"
+      >
+        <span>სირთულე</span>
+        <span *ngIf="isActive6">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="7"
+            viewBox="0 0 12 7"
+            fill="none"
+          >
+            <path d="M11 6.5L6 1.5L1 6.5" stroke="#272727" />
+          </svg>
+        </span>
+        <span *ngIf="!isActive6">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="7"
+            viewBox="0 0 12 7"
+            fill="none"
+          >
+            <path d="M1 0.5L6 5.5L11 0.5" stroke="#272727" />
+          </svg>
+        </span>
+      </span>
+      <ul class="items">
+        <li class="flex-row-center">
+          <input type="checkbox" [(ngModel)]="isChecked" /><span
+            class="flex-row-center"
+            >მარტივი</span
+          >
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">საშუალო</span>
+        </li>
+        <li class="flex-row-center">
+          <input type="checkbox" /><span class="flex-row-center">რთული</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="clear">
+    <span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
+      <path d="M8.19692 14.6809L7.84178 16C7.84178 16 9.86191 15.5431 10.7336 14.6809C11.0805 14.3378 11.3144 13.7837 11.4634 13.303C11.6547 12.6858 11.7399 12.032 11.6374 11.3941C11.5562 10.8889 11.3619 10.3169 10.9112 10.0275C9.99798 9.44122 9.51601 9.55115 8.70426 9.84428C7.89251 10.1374 6.30636 12.2285 4.08744 12.4336C3.07678 12.527 1.5 12.1893 1.5 12.1893L3.52937 14.2901L5.71094 13.6061L3.78304 14.6809L4.49332 15.0718L6.57342 13.8504L5.15286 15.316L6.11681 15.7557L7.33443 14.6809L6.57342 16H7.08076L8.19692 14.6809Z" stroke="#222222" stroke-width="0.5"/>
+      <path d="M16.2678 0.707744C16.3792 0.527126 16.6182 0.465257 16.8032 0.56915C16.9921 0.675294 17.0518 0.913161 16.9353 1.09615L11.2067 10.0955C11.1816 10.1349 11.1264 10.1435 11.091 10.1134C10.9843 10.0228 10.8673 9.94428 10.7421 9.87937L10.6423 9.82764L16.2678 0.707744Z" stroke="#222222" stroke-width="0.5"/>
+      <path d="M13.2232 14.8763C13.2232 15.1612 12.9807 15.408 12.6615 15.408C12.3423 15.408 12.0997 15.1612 12.0997 14.8763C12.0997 14.5915 12.3423 14.3447 12.6615 14.3447C12.9807 14.3447 13.2232 14.5915 13.2232 14.8763Z" stroke="#222222" stroke-width="0.5"/>
+      <path d="M14.4916 13.2641C14.4916 13.4545 14.3286 13.6248 14.1074 13.6248C13.8863 13.6248 13.7233 13.4545 13.7233 13.2641C13.7233 13.0737 13.8863 12.9034 14.1074 12.9034C14.3286 12.9034 14.4916 13.0737 14.4916 13.2641Z" stroke="#222222" stroke-width="0.5"/>
+      <mask id="path-5-inside-1_957_5742" fill="white">
+      <ellipse cx="14.97" cy="14.6076" rx="0.380507" ry="0.366414"/>
+      </mask>
+      <path d="M14.8505 14.6076C14.8505 14.5162 14.9219 14.474 14.97 14.474V15.474C15.4383 15.474 15.8505 15.1037 15.8505 14.6076H14.8505ZM14.97 14.474C15.018 14.474 15.0895 14.5162 15.0895 14.6076H14.0895C14.0895 15.1037 14.5016 15.474 14.97 15.474V14.474ZM15.0895 14.6076C15.0895 14.699 15.018 14.7412 14.97 14.7412V13.7412C14.5016 13.7412 14.0895 14.1115 14.0895 14.6076H15.0895ZM14.97 14.7412C14.9219 14.7412 14.8505 14.699 14.8505 14.6076H15.8505C15.8505 14.1115 15.4383 13.7412 14.97 13.7412V14.7412Z" fill="#222222" mask="url(#path-5-inside-1_957_5742)"/>
+      </svg></span>
+    <span>გასუფთავება</span>
+  </div>
+</div>
+<div class="list ">
+    <ng-container *ngFor="let tour of tourlist">
+        <app-tour-card [tour]="tour">
+        </app-tour-card>
+    </ng-container>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <div
+
+  id="list1"
+  class="dropdown-check-list"
+  [ngClass]="isActive2 ? 'visible' : ''"
+>
+  <span
+    class="anchor flex-row-center flex-column-space-between"
+    (click)="call(2)"
+  >
+    <span>ფასი</span>
+    <span *ngIf="isActive2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="12"
+        height="7"
+        viewBox="0 0 12 7"
+        fill="none"
+      >
+        <path d="M11 6.5L6 1.5L1 6.5" stroke="#272727" />
+      </svg>
+    </span>
+    <span *ngIf="!isActive2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="12"
+        height="7"
+        viewBox="0 0 12 7"
+        fill="none"
+      >
+        <path d="M1 0.5L6 5.5L11 0.5" stroke="#272727" />
+      </svg>
+    </span>
+    <ul class="items">
+      <mat-card class="example-result-card">
+        <mat-card-content>
+          <mat-slider
+            class="example-margin"
+            [disabled]="disabled"
+            min="0"
+            max="500"
+            step="5"
+            discrete
+          >
+            <input matSliderThumb [(ngModel)]="value" #slider />
+          </mat-slider>
+        </mat-card-content>
+        <mat-card-content>
+          <section class="example-section flex-row ">
+            <mat-form-field class="pading-16">
+              <input matInput [(ngModel)]="value" />
+            </mat-form-field>
+            <mat-form-field class="">
+              <input matInput placeholder="MIN" [(ngModel)]="min" />
+            </mat-form-field>
+          </section>
+        </mat-card-content>
+      </mat-card>
+    </ul>
+  </span>
+</div> -->

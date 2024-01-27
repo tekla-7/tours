@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { InformationService } from './information.service';
-import { tureDataType } from '../../../core/tour.interfaces';
+import { tourDataType } from '../../../core/tour.interfaces';
 @Component({
   selector: 'app-slideshow',
   templateUrl: './slideshow.component.html',
@@ -36,17 +36,20 @@ export class SlideshowComponent implements OnInit {
   ];
   interval: any;
   currentSlide: number = 0;
-  turelist: tureDataType[] = [];
-topture:tureDataType[]=[];
+  tourlist: tourDataType[] = [];
+  popularNow: tourDataType[] = [];
+  Offeroftheday: tourDataType[] = [];
+  Topoffers: tourDataType[] = [];
   ngOnInit(): void {
     this.interval = setInterval(() => {
       this.next();
     }, 3000);
   }
   constructor(private information: InformationService) {
-    this.turelist = this.information.get();
-    console.log(this.turelist);
-    
+    this.tourlist = this.information.get();
+    this.popularNow = this.information.popularNow();
+    this.Offeroftheday = this.information.Offeroftheday();
+    this.Topoffers = this.information.Topoffers();
   }
   next() {
     if (this.currentSlide == this.slides.length) {
@@ -62,15 +65,35 @@ topture:tureDataType[]=[];
       this.next();
     }, 3000);
   }
-  nextPicture() {
-    let obj: tureDataType = this.turelist[0];
-    this.turelist.splice(0, 1);
-    this.turelist.push(obj);
- 
+  nextPicture(index: number) {
+    if (index == 1) {
+      let obj: tourDataType = this.popularNow[0];
+      this.popularNow.splice(0, 1);
+      this.popularNow.push(obj);
+    }else if(index==2){
+      let obj: tourDataType = this.Offeroftheday[0];
+      this.Offeroftheday.splice(0, 1);
+      this.Offeroftheday.push(obj);
+    }else{
+      let obj: tourDataType = this.Topoffers[0];
+      this.Topoffers.splice(0, 1);
+      this.Topoffers.push(obj);
+    }
   }
-  prePicture() {
-    let obj: tureDataType = this.turelist[this.turelist.length - 1];
-    this.turelist.splice(this.turelist.length - 1, 1);
-    this.turelist.splice(0, 0, obj);
+  prePicture(index: number) {
+    if (index == 1) {
+      let obj: tourDataType = this.popularNow[this.popularNow.length - 1];
+      this.popularNow.splice(this.popularNow.length - 1, 1);
+      this.popularNow.splice(0, 0, obj);
+    }else if(index==2){
+      let obj:tourDataType = this.Offeroftheday[this.Offeroftheday.length - 1];
+      this.Offeroftheday.splice(this.Offeroftheday.length - 1, 1);
+      this.Offeroftheday.splice(0, 0, obj);
+    }else{
+      let obj:tourDataType = this.Topoffers[this.Topoffers.length - 1];
+      this.Topoffers.splice(this.Topoffers.length - 1, 1);
+      this.Topoffers.splice(0, 0, obj);
+    }
+  
   }
 }

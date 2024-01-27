@@ -7,7 +7,7 @@
           'background-image': 'url(' + slides[currentSlide].url + ')'
         }"
       >
-        <div class="text">აღმოაჩინე საქართველო</div>
+        <div class="text1">აღმოაჩინე საქართველო</div>
       </div>
     </div>
     <br />
@@ -41,8 +41,8 @@
         </span>
       </div>
     </div>
-    <div class="popular-tour flex-center  ">
-      <div class="prev-picture button" (click)="prePicture()">
+    <div class="popular-tour flex-center ">
+      <div class="prev-picture button flex-center" (click)="prePicture(1)">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
           <path
@@ -52,11 +52,11 @@
         </svg>
       </div>
       <div class="list">
-        <ng-container *ngFor="let ture of turelist; let i = index">
-          <app-trending [ture]="ture"></app-trending>
+        <ng-container *ngFor="let tour of popularNow; let i = index">
+          <app-trending [tour]="tour"></app-trending>
         </ng-container>
       </div>
-      <div class="next-picture button" (click)="nextPicture()">
+      <div class="next-picture button flex-center " (click)="nextPicture(1)">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
           <path
@@ -89,7 +89,7 @@
       </div>
     </div>
     <div class="popular-tour flex-center  ">
-      <div class="prev-picture button" (click)="prePicture()">
+      <div class="prev-picture button flex-center " (click)="prePicture(2)">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
           <path
@@ -99,11 +99,11 @@
         </svg>
       </div>
       <div class="list">
-        <ng-container *ngFor="let ture of turelist; let i = index">
-          <app-offersoftheday [ture]="ture"></app-offersoftheday>
+        <ng-container *ngFor="let tour of Offeroftheday; let i = index">
+          <app-offersoftheday [tour]="tour"></app-offersoftheday>
         </ng-container>
       </div>
-      <div class="next-picture button" (click)="nextPicture()">
+      <div class="next-picture button flex-center " (click)="nextPicture(2)">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
           <path
@@ -137,7 +137,7 @@
       </div>
     </div>
     <div class="popular-tour flex-center  ">
-      <div class="prev-picture button" (click)="prePicture()">
+      <div class="prev-picture button flex-center " (click)="prePicture(3)">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
           <path
@@ -147,11 +147,12 @@
         </svg>
       </div>
       <div class="list">
-        <ng-container *ngFor="let ture of turelist; let i = index">
-          <app-topoffers [ture]="ture"></app-topoffers>
+        <ng-container *ngFor="let tour of Topoffers; let i = index">
+          <app-topoffers [tour]="tour"></app-topoffers>
         </ng-container>
       </div>
-      <div class="next-picture button" (click)="nextPicture()">
+      <div>
+      <div class="next-picture button flex-center " (click)="nextPicture(3)">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
           <path
@@ -161,6 +162,7 @@
         </svg>
       </div>
     </div>
-    
+    </div>
+  
   </div>
 </div>

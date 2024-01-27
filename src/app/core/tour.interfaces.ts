@@ -1,9 +1,9 @@
-export interface tureDataType{
+export interface tourDataType{
     id?: Number;
     title?: String;
     img?: String;
-    Oldprice?: String;
-    Newprice?: String;
+    Oldprice?: number;
+    Newprice?: number;
     AdditionalInformation?: String;
     Dateofaddition?: String;
     Location?: String;
