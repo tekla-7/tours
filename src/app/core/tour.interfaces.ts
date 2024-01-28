@@ -4,7 +4,7 @@ export interface tourDataType{
     img?: String;
     Oldprice?: number;
     Newprice?: number;
-    AdditionalInformation?: String;
+    AdditionalInformation?:string[];
     Dateofaddition?: String;
     Location?: String;
     Difficulty?: String;

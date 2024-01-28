@@ -40,8 +40,15 @@
 <!-- bottom bar -->
 
 <div class="bottom-bar flex-row-end flex-row-center">
-<div>მთავარი</div>
-<div>ტურები</div>
+<div routerLinkActive="active"
+aria-current="page"
+routerLink="/"
+[routerLinkActiveOptions]="{exact:true}" >მთავარი</div>
+<div 
+routerLinkActive="active"
+aria-current="page"
+routerLink="tours"
+>ტურები</div>
 <div>კონტაქტი</div>
 <div>ჩვენს შესახებ</div>
 

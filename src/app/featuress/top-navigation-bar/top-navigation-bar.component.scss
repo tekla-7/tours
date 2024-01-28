@@ -7,6 +7,8 @@
   background-color: white;
   z-index: 2;
   display: inline-block;
+  .active{
+    color: #0AC2A1;  }
   .top-bar {
     height: 64px;
     padding: 12px 80px 12px 80px;

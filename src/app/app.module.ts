@@ -45,7 +45,8 @@ import { AboutTourComponent } from './featuress/page-3/about-tour/about-tour.com
     BrowserAnimationsModule,
     MatSlideToggleModule ,
     MatSliderModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

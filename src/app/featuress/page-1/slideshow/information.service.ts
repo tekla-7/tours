@@ -32,6 +32,7 @@ export class InformationService {
 
     return arrlist;
   }
+  
   popularNow() {
     let arrlist: tourDataType[] = [];
     this.http
