@@ -18,6 +18,12 @@ import {MatSliderModule} from '@angular/material/slider';
 import { MatNativeDateModule } from '@angular/material/core';
 import { TourCardComponent } from './featuress/page-2/alltours/tour-card/tour-card.component';
 import { AboutTourComponent } from './featuress/page-3/about-tour/about-tour.component';
+import { RegistrationComponent } from './featuress/page-4/registration/registration.component';
+import { AuthorizationComponent } from './featuress/page-4/authorization/authorization.component';
+import { CheckoutComponent } from './featuress/page-4/checkout/checkout.component';
+import { SuccessfulOperationComponent } from './featuress/page-4/successful-operation/successful-operation.component';
+import { PersonalInformationComponent } from './featuress/page-5/personal-information/personal-information.component';
+import { MyTourComponent } from './featuress/page-5/personal-information/my-tour/my-tour.component';
 
 
 
@@ -33,6 +39,12 @@ import { AboutTourComponent } from './featuress/page-3/about-tour/about-tour.com
    AlltoursComponent,
    TourCardComponent,
    AboutTourComponent,
+   RegistrationComponent,
+   AuthorizationComponent,
+   CheckoutComponent,
+   SuccessfulOperationComponent,
+   PersonalInformationComponent,
+   MyTourComponent,
  
   
   ],

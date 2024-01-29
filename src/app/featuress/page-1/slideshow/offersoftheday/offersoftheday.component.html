@@ -1,5 +1,5 @@
 @if (tour) {
-    <div class="card" routerLink="tour">
+    <div class="card" routerLink="tour" (click)="onClickItem()"  [routerLink]="['/tour',tour.id]" >
         <img src="{{tour.img}}" alt="" />
       <div class="information">
         <div class="text flex-column-space-between ">
@@ -14,3 +14,4 @@
       </div>
     </div>
     }
+    

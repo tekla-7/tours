@@ -96,4 +96,8 @@ export class SlideshowComponent implements OnInit {
     }
   
   }
+//   onEditItem(i:number){
+// let tourId=this.tourlist[i].id;
+
+//   }
 }

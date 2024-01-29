@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrl: './top-navigation-bar.component.scss'
 })
 export class TopNavigationBarComponent {
-
 }

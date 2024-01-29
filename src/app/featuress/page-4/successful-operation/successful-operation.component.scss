@@ -1,0 +1,51 @@
+.container {
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-top: 202px;
+    .card {
+        display: inline-flex;
+        padding: 64px 72px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background: #FFF;
+        color: #272727;
+margin-bottom: 136px;
+div{
+    margin-bottom: 24px;
+}
+.text{
+    color: var(--text-color-1, #272727);
+font-family: "Noto Sans Georgian";
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 26px; /* 130% */
+
+}
+button {
+    width: 510px;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    font-family: "Noto Sans Georgian";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+
+   
+}
+.top-button {
+        background-color: rgba(10, 194, 161, 0.80);
+        color: #FFF;
+        margin-bottom: 24px;
+    }
+
+    .bot-button {
+        background: none;
+        border: 1px solid #0AC2A1;
+        color: rgba(10, 194, 161, 0.80);
+}
+}}

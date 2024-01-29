@@ -100,6 +100,7 @@
       </div>
       <div class="list">
         <ng-container *ngFor="let tour of Offeroftheday; let i = index">
+          <!-- (clickItem)="onEditItem(i)" -->
           <app-offersoftheday [tour]="tour"></app-offersoftheday>
         </ng-container>
       </div>

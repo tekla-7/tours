@@ -1,0 +1,32 @@
+<div class="container flex-row-center flex-column">
+  <div class="title">ბარათით გადახდა</div>
+  <div class="card">
+    <div class="inputs flex-column ">
+      <label for="name">ბარათის სახელი</label>
+      <span>
+        <input type="text" placeholder="მფლობელის სახელი" id="name" />
+      </span>
+    </div>
+    <div class="inputs flex-column">
+      <label for="number">ბარათის ნომერი</label>
+      <span>
+        <input type="text" placeholder="ბარათის ნომერი" id="number" />
+      </span>
+    </div>
+    <div class="cvv flex-row ">
+      <div class="flex-column left">
+        <label for="Expirydate">მოქმედების ვადა</label>
+       <input type="text" placeholder="MM/YY" id="Expirydate " />
+      </div>
+      <div class="flex-column right">
+        <label for="CVC">CVC/CVV</label>
+          <input type="text" placeholder="CVC" id="Expirydate " />
+      </div>
+    </div>
+    <div class="flex-column-center  checkbox">
+        <input type="checkbox" id="scales" name="scales" checked />
+         <label for="scales">ბარათის დამახსოვრება</label>
+    </div>
+    <button class="regist-button">გადახდა</button>
+  </div>
+</div>
