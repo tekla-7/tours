@@ -24,6 +24,11 @@ import { CheckoutComponent } from './featuress/page-4/checkout/checkout.componen
 import { SuccessfulOperationComponent } from './featuress/page-4/successful-operation/successful-operation.component';
 import { PersonalInformationComponent } from './featuress/page-5/personal-information/personal-information.component';
 import { MyTourComponent } from './featuress/page-5/personal-information/my-tour/my-tour.component';
+import { MyDataComponent } from './featuress/page-5/personal-information/my-data/my-data.component';
+import { CardComponent } from './featuress/page-5/personal-information/my-tour/card/card.component';
+import { SavedComponent } from './featuress/page-5/personal-information/saved/saved.component';
+import { HistoryComponent } from './featuress/page-5/personal-information/history/history.component';
+import { UpdatePasswordComponent } from './featuress/page-5/personal-information/update-password/update-password.component';
 
 
 
@@ -45,6 +50,11 @@ import { MyTourComponent } from './featuress/page-5/personal-information/my-tour
    SuccessfulOperationComponent,
    PersonalInformationComponent,
    MyTourComponent,
+   MyDataComponent,
+   CardComponent,
+   SavedComponent,
+   HistoryComponent,
+   UpdatePasswordComponent,
  
   
   ],

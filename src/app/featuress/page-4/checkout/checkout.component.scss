@@ -13,6 +13,7 @@
         margin-bottom: 40px;
     }
 
+
     .card {
         display: inline-flex;
         padding: 64px 72px;
@@ -23,6 +24,26 @@
         background: #FFF;
         color: #272727;
         margin-bottom: 136px;
+
+        .amount {
+            width: 534px;
+            padding-left: 12px;
+            padding-right: 12px;
+            color: var(--text-color-1, #272727);
+            font-family: "Noto Sans Georgian";
+            font-size: 16px;
+            font-style: normal;
+            text-align: left;
+            font-weight: 600;
+            line-height: 24px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #BEC3CA;
+            margin-bottom: 32px;
+
+            .c-27 {
+                color: rgba(10, 194, 161, 0.80);
+            }
+        }
 
         input {
             height: 48px;
@@ -79,6 +100,7 @@
 
         .checkbox {
             margin-bottom: 24px;
+
             input {
                 width: 16px;
                 height: 16px;
@@ -95,6 +117,7 @@
                 line-height: 19px;
             }
         }
+
         button {
             width: 510px;
             height: 48px;
@@ -105,10 +128,10 @@
             font-style: normal;
             font-weight: 600;
             line-height: 20px;
-
-           background-color: rgba(10, 194, 161, 0.80);
-                color: #FFF;
-                margin-bottom: 32px;
+            cursor: pointer;
+            background-color: rgba(10, 194, 161, 0.80);
+            color: #FFF;
+            margin-bottom: 32px;
         }
 
     }

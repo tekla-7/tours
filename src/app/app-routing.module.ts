@@ -7,6 +7,13 @@ import { RegistrationComponent } from './featuress/page-4/registration/registrat
 import { AuthorizationComponent } from './featuress/page-4/authorization/authorization.component';
 import { PersonalInformationComponent } from './featuress/page-5/personal-information/personal-information.component';
 import { MyTourComponent } from './featuress/page-5/personal-information/my-tour/my-tour.component';
+import { MyDataComponent } from './featuress/page-5/personal-information/my-data/my-data.component';
+import { SavedComponent } from './featuress/page-5/personal-information/saved/saved.component';
+import { HistoryComponent } from './featuress/page-5/personal-information/history/history.component';
+import { UpdatePasswordComponent } from './featuress/page-5/personal-information/update-password/update-password.component';
+import { CheckoutComponent } from './featuress/page-4/checkout/checkout.component';
+import { combineLatest } from 'rxjs';
+import { SuccessfulOperationComponent } from './featuress/page-4/successful-operation/successful-operation.component';
 
 const routes: Routes = [ 
   { path: '', component: SlideshowComponent },
@@ -15,10 +22,16 @@ const routes: Routes = [
     path: 'tour/:id',
     component: AboutTourComponent,
   },
-{path:'registration', component:RegistrationComponent},
-{path:'authorization', component:AuthorizationComponent},
+{path:'registration/:id', component:RegistrationComponent},
+{path:'authorization/:id', component:AuthorizationComponent},
+{path:'checkout/:id',component:CheckoutComponent},
+{path:'successful-operation',component:SuccessfulOperationComponent},
 {path:'user-page', component:PersonalInformationComponent, children:[
-  {path:'my-tour',component:MyTourComponent}
+  {path:'my-tour',component:MyTourComponent},
+  {path:'my-data',component:MyDataComponent},
+  {path:'saved',component:SavedComponent},
+  {path:'history',component:HistoryComponent},
+  {path:'update-password',component:UpdatePasswordComponent},
 ]}
 ];
 

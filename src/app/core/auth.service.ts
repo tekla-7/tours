@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  isLoggedId: number = 0;
+  isLoggedId=new Subject<number>();
   isloggedin = false;
-
-  constructor(private http: HttpClient) {}
+  LoginOrLogout = new Subject<number>;
+  constructor(private http: HttpClient ) {}
   
 }

@@ -120,5 +120,27 @@ export class InformationService {
       });
       return arrlist;
   }
+getone(id:number){
+  let obj: tourDataType={};
+  this.http.get<any>('http://localhost:3000/post').subscribe((element) => {
+      obj.id = element[id].id;
+      obj.title = element[id].title;
+      obj.img = element[id].img;
+      obj.Oldprice = element[id].Oldprice;
+      obj.Newprice = element[id].Newprice;
+      obj.AdditionalInformation = element[id].AdditionalInformation;
+      obj.Dateofaddition = element[id].Dateofaddition;
+      obj.Location = element[id].Location;
+      obj.Difficulty = element[id].Difficulty;
+      obj.totaldistance = element[id].totaldistance;
+      obj.Views = element[id].Views;
+      obj.Rate = element[id].Rate;
+      obj.Thetourincludes = element[id].Thetourincludes;
+      
+    
+  });
+
+  return obj;
+}
 
 }

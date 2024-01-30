@@ -51,7 +51,10 @@ export class AboutTourComponent implements OnInit {
   }
   reservation(){
     if(!this.login){
-this.router.navigate(['/registration'])
+      
+      this.router.navigateByUrl(`/registration/${this.id}`);
+     
+// this.router.navigate(['/registration'])
     }else{
       this.router.navigate(['/authorization'] , {relativeTo: this.route , queryParamsHandling:'preserve'})
     }

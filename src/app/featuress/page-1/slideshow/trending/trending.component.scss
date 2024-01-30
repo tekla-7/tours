@@ -1,10 +1,7 @@
 .card {
-    width: 467.5px;
-    height: 320px;
-    height: 100%;
-    object-fit: cover;
+   
     border-radius:8px ;
-    animation: normal;
+   
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     margin-bottom: 10px;
     &:hover{
@@ -12,10 +9,11 @@
     border-radius: 8px;
     }
         img {
-            width: 100%;
+         width: 467.5px;
             height: 255px;
             border-radius: 8px  8px 0 0 ;
             margin-bottom: 12px;
+           
         }
 
     

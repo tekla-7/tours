@@ -21,7 +21,7 @@
   </div>
 
   <div class="myprofile flex-row-center">
-    <div class="trips flex-row-center ">
+    <div class="trips flex-row-center " routerLink="user-page/my-tour" queryParamsHandling="preserve">
       <img
         src="https://images.freeimages.com/fic/images/icons/2770/ios_7_icons/512/cars.png"
         alt=""
@@ -29,7 +29,7 @@
       <div class="pieces"><span>5</span></div>
       <div class="name">ჩემი ტური</div>
     </div>
-    <div class="profile-icon" routerLink="authorization">
+    <div class="profile-icon" routerLink="authorization/0" queryParamsHandling="preserve">
       <img
         src="https://static-00.iconduck.com/assets.00/avatar-default-icon-1975x2048-2mpk4u9k.png"
         alt=""
@@ -42,10 +42,12 @@
 <div class="bottom-bar flex-row-end flex-row-center">
 <div 
 role="presentation"
+queryParamsHandling="preserve"
 routerLinkActive="active"
 routerLink="/"
 [routerLinkActiveOptions]="{exact:true}" >მთავარი</div>
 <div 
+queryParamsHandling="preserve"
 routerLinkActive="active"
 role="presentation"
 routerLink="tours"

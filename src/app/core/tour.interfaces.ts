@@ -12,4 +12,5 @@ export interface tourDataType{
     Views?: number;
     Rate?: String;
     Thetourincludes?: String;
+    category?:string;
  }

@@ -1,0 +1,73 @@
+.container1 {
+    padding: 14px;
+    border-radius: 8px;
+    background: #FFF;
+    width: 100%;
+    margin-bottom: 42px;
+position: relative;
+    img {
+
+        width: 412px;
+        height: 220px;
+        border-radius: 4px;
+        margin-right: 20px;
+    }
+
+    .text {
+    
+        .name {
+            color: var(--text-color-1, #272727);
+            font-family: "Noto Sans Georgian";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 20px;
+            margin-bottom: 16px;
+            /* 125% */
+        }
+
+        .location {
+            color: var(--text-color-1, #272727);
+            font-family: "Noto Sans Georgian";
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+
+            span {
+                margin-right: 8px;
+            }
+        }
+.left-bottom{
+    position: absolute;
+    bottom: 14px;
+}
+       .right-top{
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+       }
+
+    }
+
+    button {
+  
+   
+        width: 157px;
+        height: 48px;
+        padding: 14px 24px;
+        border-radius: 8px;
+        background: var(--primary-2, rgba(10, 194, 161, 0.80));
+        border: none;
+        color: #FFF;
+        font-family: "Noto Sans Georgian";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+       
+        
+        /* 125% */
+
+    }
+}
