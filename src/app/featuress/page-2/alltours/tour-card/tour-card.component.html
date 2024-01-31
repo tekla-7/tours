@@ -1,5 +1,5 @@
 @if (tour) {
-<div class="card" [routerLink]="['/tour',tour.id]">
+<div class="card" [routerLink]="['/tour',tour.id]" queryParamsHandling="preserve">
   <div class="picture">
     <div class="pic">
       <img src="{{ tour.img }}" alt="" />

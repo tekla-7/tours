@@ -1,21 +1,23 @@
 <div class="container">
     <div class="title">პირადი ინფორმაცია</div>
     <div class="info ">
+        <form [formGroup]="userform" (submit)="addpersonalData()">
         <div class="flex-column ">
             <label for="name">სახელი</label>
-            <input type="text" id="#name" placeholder="სახელი">
+            <input type="text" id="#name" placeholder="სახელი" formControlName="name">
         </div>
         <div class="flex-column " >
             <label for="lastname">გვარი</label>
-            <input type="text" id="#lastname" placeholder="გვარი">
+            <input type="text" id="#lastname" placeholder="გვარი" formControlName="lastname">
         </div>
         <div class="flex-column ">
             <label for="phone">ტელეფონის ნომერი</label>
-            <input type="text" id="#phone" placeholder="ტელეფონის ნომერი">
+            <input type="text" id="#phone" placeholder="ტელეფონის ნომერი" formControlName="phonenumber">
         </div>
 
         <div>
-            <button>შენახვა</button>
+            <button type="submit">შენახვა</button>
         </div>
+    </form>
     </div>
 </div>

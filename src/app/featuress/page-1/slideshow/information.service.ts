@@ -122,25 +122,52 @@ export class InformationService {
   }
 getone(id:number){
   let obj: tourDataType={};
-  this.http.get<any>('http://localhost:3000/post').subscribe((element) => {
-      obj.id = element[id].id;
-      obj.title = element[id].title;
-      obj.img = element[id].img;
-      obj.Oldprice = element[id].Oldprice;
-      obj.Newprice = element[id].Newprice;
-      obj.AdditionalInformation = element[id].AdditionalInformation;
-      obj.Dateofaddition = element[id].Dateofaddition;
-      obj.Location = element[id].Location;
-      obj.Difficulty = element[id].Difficulty;
-      obj.totaldistance = element[id].totaldistance;
-      obj.Views = element[id].Views;
-      obj.Rate = element[id].Rate;
-      obj.Thetourincludes = element[id].Thetourincludes;
+  this.http.get<any>('http://localhost:3000/post/'+id).subscribe((element) => {
+      obj.id = element.id;
+      obj.title = element.title;
+      obj.img = element.img;
+      obj.Oldprice = element.Oldprice;
+      obj.Newprice = element.Newprice;
+      obj.AdditionalInformation = element.AdditionalInformation;
+      obj.Dateofaddition = element.Dateofaddition;
+      obj.Location = element.Location;
+      obj.Difficulty = element.Difficulty;
+      obj.totaldistance = element.totaldistance;
+      obj.Views = element.Views;
+      obj.Rate = element.Rate;
+      obj.Thetourincludes = element.Thetourincludes;
       
     
   });
 
   return obj;
+}
+getlist(id:number[]){
+  let arrlist: tourDataType[] = [];
+  this.http
+    .get<any>('http://localhost:3000/post').subscribe(element=>{
+      for (let i of id) {
+        let obj: tourDataType = {};
+        obj.id = element[i].id;
+        obj.title = element[i].title;
+        obj.img = element[i].img;
+        obj.Oldprice = element[i].Oldprice;
+        obj.Newprice = element[i].Newprice;
+        obj.AdditionalInformation = element[i].AdditionalInformation;
+        obj.Dateofaddition = element[i].Dateofaddition;
+        obj.Location = element[i].Location;
+        obj.Difficulty = element[i].Difficulty;
+        obj.totaldistance = element[i].totaldistance;
+        obj.Views = element[i].Views;
+        obj.Rate = element[i].Rate;
+        obj.Thetourincludes = element[i].Thetourincludes;
+        arrlist.push(obj);
+      }
+    });
+    return arrlist;
+
+
+
 }
 
 }

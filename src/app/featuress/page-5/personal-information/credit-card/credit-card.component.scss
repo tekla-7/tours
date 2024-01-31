@@ -1,0 +1,67 @@
+@import url(./_sharedcredit.scss);
+
+input {
+    height: 48px;
+    border-radius: 8px;
+    padding: 14px 16px;
+    align-items: center;
+    border: 1px solid var(--text-color-2, #656666);
+    background: none;
+    font-family: "Noto Sans Georgian";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+
+    &:focus {
+        outline: none;
+    }
+}
+.inputs {
+    margin-bottom: 16px;
+
+    input {margin-top: 8px;
+        width: 510px;
+    }
+
+}
+
+.cvv {
+    margin-bottom: 16px;
+
+
+    .left {
+        position: absolute;
+bottom: 24px;
+left: 25px;
+        padding-left: 0;
+        margin-right: 0;
+        margin-right: 10px;
+    }
+
+    .right {
+        position: absolute;
+bottom: 24px;
+left: 289px;
+        margin-left: 10px;
+    }
+
+    input {
+        margin-top: 8px;
+        width: 247px;
+    }
+}
+.items{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    li{
+        left: 50%;
+        height: 258px;
+       
+    }
+   
+} 
+button{
+    background: rgba(10, 194, 161, 0.80);
+}

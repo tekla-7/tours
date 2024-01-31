@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InformationService } from '../../page-1/slideshow/information.service';
 import { tourDataType } from '../../../core/tour.interfaces';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-about-tour',
@@ -15,9 +15,12 @@ export class AboutTourComponent implements OnInit {
   Thetourincludes:boolean[]=[];
   id:number=0;
   login=false;
+  userId:number=0;
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-
+    this.route.queryParams.subscribe((queryParams: Params) => {
+      this.userId = queryParams['userId'];
+    });
   }
   constructor(private information: InformationService , private http:HttpClient ,private route: ActivatedRoute ,private router:Router) {
     let arrlist: tourDataType;
@@ -50,13 +53,11 @@ export class AboutTourComponent implements OnInit {
   
   }
   reservation(){
-    if(!this.login){
-      
-      this.router.navigateByUrl(`/registration/${this.id}`);
-     
-// this.router.navigate(['/registration'])
+    
+    if(this.userId>0){
+      this.router.navigate(['/checkout',this.id],{queryParamsHandling:'preserve'});
     }else{
-      this.router.navigate(['/authorization'] , {relativeTo: this.route , queryParamsHandling:'preserve'})
+      this.router.navigate(['/registration/',this.id] , { queryParamsHandling:'preserve'})
     }
   }
 

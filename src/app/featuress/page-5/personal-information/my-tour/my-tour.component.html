@@ -1,1 +1,10 @@
-<app-card></app-card>
+<div *ngIf="tourlist.length>0;else elseel">
+<ng-container *ngFor="let mytour of tourlist; let i = index">
+    <app-card [mytour]="mytour"></app-card>
+</ng-container> 
+</div>
+<ng-template #elseel>
+<div class="empty flex-center">
+    <img src="https://cdn.icon-icons.com/icons2/2483/PNG/512/empty_data_icon_149938.png" alt="">
+</div>
+</ng-template>

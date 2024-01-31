@@ -1,0 +1,96 @@
+
+.dropdown-check-list {
+    width: 100%;
+    padding: 14px;
+    margin-bottom:0px;
+    .anchor {
+        width: 100%;
+        cursor: pointer;
+        padding:  24px;
+        height: 90px;
+        border-radius:8px;
+        background-color: white;
+        color: var(--text-color-1, #272727);
+        font-family: "Noto Sans Georgian";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+        &:hover{
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+        .card{
+            width:100px ;
+            height: 64px; 
+            img{
+             width:100px ;
+            height: 64px;   
+             border-radius: 8px;
+             
+            }
+            margin-right: 20px;
+           
+        }
+        .text{
+            .mb-10{
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .items {
+        position: relative;
+        padding: 2px;
+        display: none;
+        margin: 0;
+        background-color: white;
+        border-radius: 0 0 8px 8px;
+        border-top: none;
+        color: var(--text-color-1, #272727);
+        font-family: "Noto Sans Georgian";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+
+        /* 142.857% */
+        li {
+            list-style: none;
+          
+            margin: 24px;
+            div{
+                margin: 5px;
+            }
+         }
+         button{
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            width: 157px;
+        height: 48px;
+        padding: 14px 24px;
+        border-radius: 8px;
+        border: none;
+        color: #FFF;
+        font-family: "Noto Sans Georgian";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+        cursor: pointer;
+        }
+
+    }
+}
+.dropdown-check-list.visible .items {
+    display: block;
+
+}
+
+.dropdown-check-list.visible .anchor {
+    color: black;
+    border-radius: 8px 8px 0 0 ;
+    &:hover{
+        box-shadow: none;
+    }
+}

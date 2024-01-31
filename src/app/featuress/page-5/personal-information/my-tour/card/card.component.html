@@ -1,13 +1,14 @@
+
 <div class="container1 flex-row">
     <div class="img">
       <img
-        src="https://publika.ge/app/uploads/2021/04/publika.ge-dsc-0011-1.jpg"
+        src="{{mytour.img}}"
         alt=""
       />
     </div>
     <div class="text">
       <div>
-        <div class="name">სვანეთის ტური</div>
+        <div class="name">{{mytour.title}}</div>
         <div class="location flex-row-center">
           <span class="mr-8">
             <svg
@@ -27,7 +28,7 @@
               />
             </svg>
           </span>
-          <span>სვანეთი</span>
+          <span>{{mytour.Location}}</span>
         </div>
       </div>
       <div class="button flex-row flex-row-end">
@@ -51,12 +52,11 @@
               />
             </svg>
           </span>
-          <span > 10/02/24-13/02/24</span>
+          <span > {{mytour.Dateofaddition}}</span>
         </div>
-        <button class="right-top">დეტალურად</button>
+        <button class="right-top" [routerLink]="['/tour',mytour.id]" queryParamsHandling="preserve"  >დეტალურად</button>
       </div>
       
     </div>
-    
   </div> 
-  
+

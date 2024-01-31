@@ -29,6 +29,10 @@ import { CardComponent } from './featuress/page-5/personal-information/my-tour/c
 import { SavedComponent } from './featuress/page-5/personal-information/saved/saved.component';
 import { HistoryComponent } from './featuress/page-5/personal-information/history/history.component';
 import { UpdatePasswordComponent } from './featuress/page-5/personal-information/update-password/update-password.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { CreditCardComponent } from './featuress/page-5/personal-information/credit-card/credit-card.component';
+import { CreditComponent } from './featuress/page-5/personal-information/credit-card/credit/credit.component';
+import { ContactInformationComponent } from './featuress/page-6/contact-information/contact-information.component';
 
 
 
@@ -55,6 +59,9 @@ import { UpdatePasswordComponent } from './featuress/page-5/personal-information
    SavedComponent,
    HistoryComponent,
    UpdatePasswordComponent,
+   CreditCardComponent,
+   CreditComponent,
+   ContactInformationComponent,
  
   
   ],
@@ -68,7 +75,7 @@ import { UpdatePasswordComponent } from './featuress/page-5/personal-information
     MatSlideToggleModule ,
     MatSliderModule,
     MatNativeDateModule,
-    
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],

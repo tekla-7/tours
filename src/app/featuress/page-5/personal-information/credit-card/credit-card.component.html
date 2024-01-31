@@ -1,0 +1,48 @@
+<ng-container *ngFor="let card of cardlist ,let id=index">
+<app-credit [card]="card" (delateCard)="delateCard(id)"></app-credit>
+</ng-container>
+<div class="dropdown-check-list" [ngClass]="isActive ? 'visible' : ''">
+    <span class="anchor flex-row-center" (click)="call()">
+      <div class="card">
+        <img
+          src="https://svgsilh.com/svg/1300155.svg"
+          alt="card"
+        />
+      </div>
+      <div class=" flex-column-space-between">
+        <div class="flex-column text ">
+          <span class="mb-10">ბარათის დამატება</span>
+          <span>MC\VISA CARD</span>
+        </div>
+      </div>
+    </span>
+    <ul class="items">
+      <form [formGroup]="cardForm" (submit)="addcard()">
+      <li class=" flex-column" >
+        <div class="inputs flex-column ">
+            <label for="name">ბარათის სახელი</label>
+            <span>
+              <input type="text" placeholder="მფლობელის სახელი" id="name" formControlName="cardname"/>
+            </span>
+          </div>
+          <div class="inputs flex-column">
+            <label for="number" >ბარათის ნომერი</label>
+            <span>
+              <input type="text" placeholder="1234 5678 9012 3456" id="number" formControlName="cardnumber"/>
+            </span>
+          </div>
+          <div class="cvv flex-row ">
+            <div class="flex-column left">
+              <label for="Expirydate" >მოქმედების ვადა</label>
+             <input type="text" placeholder="MM/YY" id="Expirydate " formControlName="cardexpirationdate"/>
+            </div>
+            <div class="flex-column right">
+              <label for="CVC">CVC/CVV</label>
+                <input type="text" placeholder="CVC" id="Expirydate " formControlName="cardcvv" />
+            </div>
+          </div>
+      </li>
+    
+      <button type="submit">დამატება</button></form>
+    </ul>
+  </div>

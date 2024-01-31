@@ -1,0 +1,37 @@
+<div class="dropdown-check-list" [ngClass]="isActive ? 'visible' : ''">
+  <span class="anchor flex-row-center" (click)="call()">
+    <div class="card">
+      <img
+        src="https://static.vecteezy.com/system/resources/previews/009/384/393/original/credit-card-clipart-design-illustration-free-png.png"
+        alt="card"
+      />
+    </div>
+    <div class=" flex-column-space-between">
+      <div class="flex-column text ">
+        <span class="mb-10">ჩემი ბარათი</span>
+        <span>MC\VISA CARD</span>
+      </div>
+    </div>
+  </span>
+  <ul class="items ">
+    <li class=" flex-column">
+      <div class="flex-column-space-between">
+        <span >ბარათის დასახელება:</span>
+        <span class="ml-5">{{card.cardname}}</span>
+      </div>
+      <div class="flex-column-space-between">
+        <span >ბარათის ნომერი:</span>
+        <span class="ml-5">{{card.cardnumber}}</span>
+      </div>
+      <div class="flex-column-space-between">
+        <span >ბარათის ვადა:</span>
+        <span class="ml-5">{{card.cardexpirationdate}}</span>
+      </div>
+      <div class="flex-column-space-between">
+        <span>CCV:</span>
+        <span class="ml-5">{{card.cardcvv}}</span>
+      </div>
+    </li>
+    <button (click)="delate()">წაშლა</button>
+  </ul>
+</div>

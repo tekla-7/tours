@@ -26,7 +26,7 @@
         src="https://images.freeimages.com/fic/images/icons/2770/ios_7_icons/512/cars.png"
         alt=""
       />
-      <div class="pieces"><span>5</span></div>
+      <div class="pieces"><span>{{mytour}}</span></div>
       <div class="name">ჩემი ტური</div>
     </div>
     <div class="profile-icon" routerLink="authorization/0" queryParamsHandling="preserve">
@@ -41,7 +41,7 @@
 
 <div class="bottom-bar flex-row-end flex-row-center">
 <div 
-role="presentation"
+
 queryParamsHandling="preserve"
 routerLinkActive="active"
 routerLink="/"
@@ -49,10 +49,12 @@ routerLink="/"
 <div 
 queryParamsHandling="preserve"
 routerLinkActive="active"
-role="presentation"
+
 routerLink="tours"
 >ტურები</div>
-<div>კონტაქტი</div>
+<div routerLink="contact-information"
+queryParamsHandling="preserve"
+routerLinkActive="active">კონტაქტი</div>
 <div>ჩვენს შესახებ</div>
 
 </div>

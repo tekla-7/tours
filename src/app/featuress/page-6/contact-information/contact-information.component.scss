@@ -1,0 +1,106 @@
+.container {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 202px;
+    margin-bottom: 136px;
+    border-radius: 8px;
+    background: #FFF;
+    padding: 40px;
+
+    .title {
+        color: #272727;
+
+        font-family: "Noto Sans Georgian";
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 26px;
+        /* 118.182% */
+        margin-bottom: 40px;
+    }
+
+    .left {
+        width: 40%;
+        border-right: 1px solid #BEC3CA;
+        margin-left: 3%;
+
+        div {
+            margin-bottom: 30px;
+        }
+
+        .contact {
+            .icon {
+
+                border: 1px solid #E4EBF0;
+                border-radius: 10px;
+                margin-right: 10px;
+                width: 30px;
+                height: 30px;
+                padding: 6px;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+    }
+
+    .right {
+        width: 60%;
+        padding-left: 7%;
+
+        input {
+            width: 510px;
+            height: 48px;
+            border-radius: 8px;
+            padding: 14px 16px;
+            border: 1px solid var(--text-color-2, #656666);
+            background: none;
+            font-family: "Noto Sans Georgian";
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            margin-bottom: 30px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+textarea{
+    width: 510px;
+    height: 140px;
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid var(--text-color-2, #656666);
+    background: none;
+    font-family: "Noto Sans Georgian";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 30px;
+
+    &:focus {
+        outline: none;
+    }
+}
+       
+
+        button {
+            width: 510px;
+            height: 48px;
+            border: none;
+            border-radius: 8px;
+            font-family: "Noto Sans Georgian";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 20px;
+            cursor: pointer;
+            background-color: rgba(10, 194, 161, 0.80);
+            color: #FFF;
+            margin-bottom: 32px;
+        }
+
+    }
+}

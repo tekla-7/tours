@@ -1,0 +1,15 @@
+@import url(../_sharedcredit.scss);
+.items{
+    li{
+        width: 40%;
+        height: 110px;
+    }
+}
+.ml-5{
+
+    width: 40%;
+    
+}
+button{
+    background: var(--primary-2, rgba(186, 133, 133, 0.8));
+}

@@ -14,6 +14,8 @@ import { UpdatePasswordComponent } from './featuress/page-5/personal-information
 import { CheckoutComponent } from './featuress/page-4/checkout/checkout.component';
 import { combineLatest } from 'rxjs';
 import { SuccessfulOperationComponent } from './featuress/page-4/successful-operation/successful-operation.component';
+import { CreditCardComponent } from './featuress/page-5/personal-information/credit-card/credit-card.component';
+import { ContactInformationComponent } from './featuress/page-6/contact-information/contact-information.component';
 
 const routes: Routes = [ 
   { path: '', component: SlideshowComponent },
@@ -32,7 +34,9 @@ const routes: Routes = [
   {path:'saved',component:SavedComponent},
   {path:'history',component:HistoryComponent},
   {path:'update-password',component:UpdatePasswordComponent},
-]}
+  {path:'credit-card',component:CreditCardComponent},
+]},
+{path:'contact-information',component:ContactInformationComponent}
 ];
 
 

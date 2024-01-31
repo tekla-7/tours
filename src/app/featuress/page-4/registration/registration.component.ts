@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Route, Router } from '@angular/router';
+import { UserDataType } from '../../../core/user.interfaces';
 
 @Component({
   selector: 'app-registration',
@@ -9,11 +10,18 @@ import { ActivatedRoute, Params, Route, Router } from '@angular/router';
   styleUrl: './registration.component.scss',
 })
 export class RegistrationComponent implements OnInit {
-  userinfo: { email: string; password: string; confirmpassword: string } = {
+  userinfo:UserDataType = {
     email: '',
     password: '',
     confirmpassword: '',
-  };
+    card:[],
+    name:'',
+    lastname:'',
+    phone:0,
+    saved:[],
+    mytour:[],
+    oldtour:[],
+    };
   dataForm: FormGroup;
   useristaken = false;
   id: number = 0;
@@ -51,14 +59,10 @@ export class RegistrationComponent implements OnInit {
             if (this.id > 0) {
               this.router.navigate(['/checkout',this.id],{queryParams:{userId:userId}});
             } else {
-              this.router.navigate(['/user-page/my-data']);
+              this.router.navigate(['/user-page/my-data'],{queryParams:{userId:userId}});
             };
             this.http
-              .post<{
-                email: string;
-                password: string;
-                confirmpassword: string;
-              }>('http://localhost:3000/users', this.userinfo)
+              .post<UserDataType>('http://localhost:3000/users', this.userinfo)
               .subscribe();
           } else {
             this.useristaken = true;
