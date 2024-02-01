@@ -33,6 +33,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import { CreditCardComponent } from './featuress/page-5/personal-information/credit-card/credit-card.component';
 import { CreditComponent } from './featuress/page-5/personal-information/credit-card/credit/credit.component';
 import { ContactInformationComponent } from './featuress/page-6/contact-information/contact-information.component';
+import { RefundPolicyComponent } from './featuress/page 7/refund-policy/refund-policy.component';
+import { PrivacyComponent } from './featuress/page 7/privacy/privacy.component';
+import { AboutUsComponent } from './featuress/page 7/about-us/about-us.component';
 
 
 
@@ -62,6 +65,9 @@ import { ContactInformationComponent } from './featuress/page-6/contact-informat
    CreditCardComponent,
    CreditComponent,
    ContactInformationComponent,
+   RefundPolicyComponent,
+   PrivacyComponent,
+   AboutUsComponent,
  
   
   ],

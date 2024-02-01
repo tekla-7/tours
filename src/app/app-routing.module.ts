@@ -16,6 +16,9 @@ import { combineLatest } from 'rxjs';
 import { SuccessfulOperationComponent } from './featuress/page-4/successful-operation/successful-operation.component';
 import { CreditCardComponent } from './featuress/page-5/personal-information/credit-card/credit-card.component';
 import { ContactInformationComponent } from './featuress/page-6/contact-information/contact-information.component';
+import { RefundPolicyComponent } from './featuress/page 7/refund-policy/refund-policy.component';
+import { PrivacyComponent } from './featuress/page 7/privacy/privacy.component';
+import { AboutUsComponent } from './featuress/page 7/about-us/about-us.component';
 
 const routes: Routes = [ 
   { path: '', component: SlideshowComponent },
@@ -36,7 +39,11 @@ const routes: Routes = [
   {path:'update-password',component:UpdatePasswordComponent},
   {path:'credit-card',component:CreditCardComponent},
 ]},
-{path:'contact-information',component:ContactInformationComponent}
+{path:'contact-information',component:ContactInformationComponent},
+{path:'refund-policy', component:RefundPolicyComponent},
+{path:'policy', component:PrivacyComponent},
+{path:'about-us', component:AboutUsComponent},
+
 ];
 
 

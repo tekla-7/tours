@@ -30,7 +30,7 @@
         ></span>
       </div>
       <div>
-        <span>{{ tourlist[0].Location}}</span>
+        <span>{{ tourlist.Location}}</span>
         <span>
             <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@
       </div>
     </div>
     <div>
-      <img src="{{ tourlist[0].img }}" alt="" />
+      <img src="{{ tourlist.img }}" alt="" />
     </div>
     <div class="flex-row flex-column-space-between">
       <div class="icon-1 flex-row">
@@ -77,9 +77,8 @@
           </span>
           <span>გახზიარება</span>
         </div>
-        <div class="flex-column-center">
-          <span
-            ><svg
+        <div class="flex-column-center" (click)="saved()">
+          <span *ngIf="index<0"><svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -91,6 +90,9 @@
                 fill="#0AC2A1"
               /></svg
           ></span>
+          <span *ngIf="index>=0" >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#50e6be" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+          </span>
           <span>შენახვა</span>
         </div>
       </div>
@@ -109,7 +111,7 @@
                 fill="#272727"
               /></svg
           ></span>
-          <span>{{ tourlist[0].Rate }}</span>
+          <span>{{ tourlist.Rate }}</span>
         </div>
         <div class="flex-column-center">
           <span
@@ -153,16 +155,15 @@
                 fill="#272727"
               /></svg
           ></span>
-          <span>{{ tourlist[0].Views }}</span>
+          <span>{{ tourlist.Views }}</span>
         </div>
       </div>
     </div>
   </div>
-
   <div class="information">
     <div class="grid">
       <div class="right-info">
-        <div class="name">{{ tourlist[0].title }}</div>
+        <div class="name">{{ tourlist.title }}</div>
         <div class="add-info">
           <div class="inf">დამატებითი ინფორმაცია</div>
           <div class="detailed">
@@ -329,7 +330,7 @@
 
       <div class="left-info">
 <div class="price flex-center flex-column-space-between ">
-    <div>{{tourlist[0].Newprice}}₾</div>
+    <div>{{tourlist.Newprice}}₾</div>
     <button type="button" (click)="reservation()"> დაჯავშნა</button>
 </div>
 <div class="card">
@@ -342,7 +343,7 @@
         </span>
         <span>
             <span class="text-1">მდებარეობა:</span>
-            <span class="text-2">{{tourlist[0].Location}}</span>
+            <span class="text-2">{{tourlist.Location}}</span>
         </span>
     </div>
     <div class="flex-row-center ">
@@ -354,7 +355,7 @@
         </span>
         <span>
             <span class="text-1">გამართვის პერიოდი:</span>
-            <span class="text-2">{{tourlist[0].Dateofaddition}}</span>
+            <span class="text-2">{{tourlist.Dateofaddition}}</span>
         </span>
     </div>
     <div class="flex-row-center ">
@@ -369,7 +370,7 @@
         </span>
         <span>
             <span class="text-1">ჯამური მანძილი: </span>
-            <span class="text-2">{{tourlist[0].totaldistance}}</span>
+            <span class="text-2">{{tourlist.totaldistance}}</span>
         </span>
     </div>
     <div class="flex-row-center ">
@@ -380,7 +381,7 @@
         </span>
         <span>
             <span class="text-1">სირთულე:</span>
-            <span class="text-2">{{tourlist[0].Difficulty}}</span>
+            <span class="text-2">{{tourlist.Difficulty}}</span>
         </span>
     </div>
 </div>

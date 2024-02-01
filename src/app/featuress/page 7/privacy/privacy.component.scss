@@ -1,0 +1,18 @@
+@import url(../_shared.scss);
+.inf {
+    color: var(--text-color-1, #272727);
+    font-family: "Noto Sans Georgian";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 120% */
+    margin-bottom: 20px;
+   
+}
+.mt-10{
+    margin-top: 15px;
+}
+.mb-5{
+    margin-bottom: 8px;
+}

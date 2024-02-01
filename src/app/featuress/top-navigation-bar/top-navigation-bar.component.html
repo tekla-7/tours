@@ -29,11 +29,20 @@
       <div class="pieces"><span>{{mytour}}</span></div>
       <div class="name">ჩემი ტური</div>
     </div>
-    <div class="profile-icon" routerLink="authorization/0" queryParamsHandling="preserve">
+    <div class="profile-icon" routerLink="authorization/0" queryParamsHandling="preserve" *ngIf="!isloggin">
       <img
         src="https://static-00.iconduck.com/assets.00/avatar-default-icon-1975x2048-2mpk4u9k.png"
         alt=""
       />
+    </div>
+    <div class="dropdown" *ngIf="isloggin">
+        <img class="dropbtn"
+        src="https://static-00.iconduck.com/assets.00/avatar-default-icon-1975x2048-2mpk4u9k.png"
+        alt="">  
+      <div class="dropdown-content">
+        <a  routerLink="user-page/my-data" queryParamsHandling="preserve">პროფილი</a>
+        <a (click)="out()">გასვლა</a>
+      </div>
     </div>
   </div>
 </div>
@@ -55,7 +64,7 @@ routerLink="tours"
 <div routerLink="contact-information"
 queryParamsHandling="preserve"
 routerLinkActive="active">კონტაქტი</div>
-<div>ჩვენს შესახებ</div>
+<div routerLink="/about-us"  queryParamsHandling="preserve">ჩვენს შესახებ</div>
 
 </div>
 

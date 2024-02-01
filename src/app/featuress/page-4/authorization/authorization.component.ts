@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../core/auth.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { UserDataType } from '../../../core/user.interfaces';
 
 @Component({
   selector: 'app-authorization',
@@ -31,7 +32,6 @@ export class AuthorizationComponent  implements OnInit{
     });
   }
   autorization() {
-
     this.userinfo.email = this.dataForm.get('email')?.value,
       this.userinfo.password = this.dataForm.get('password')?.value,
       this.http.get<any>('http://localhost:3000/users').subscribe((element) => {
@@ -52,8 +52,30 @@ export class AuthorizationComponent  implements OnInit{
           );
         });
         if (users) {
+
           if(this.id>0){
-            this.router.navigate(['/checkout',this.id],{queryParams:{userId:userId}});
+            
+            if(this.activrout.snapshot.fragment){
+            
+              let sevedtourid=users.saved.findIndex((element:any) => element == this.id);
+              if(sevedtourid<0){
+users.saved.push(this.id);
+                this.http
+                .patch<UserDataType>('http://localhost:3000/users/' + userId, {
+                  saved:users.saved,
+                })
+                .subscribe();
+                this.router.navigate(['/tour',this.id], {
+                  queryParams: { userId: userId },
+                });
+              }else{
+                this.router.navigate(['/tour',this.id], {
+                  queryParams: { userId: userId },
+                });
+              }
+            }else{
+              this.router.navigate(['/checkout',this.id],{queryParams:{userId:userId}});
+            }
             
           }else{
             this.router.navigate(['/user-page/my-data'],{queryParams:{userId:userId}});
@@ -64,5 +86,17 @@ export class AuthorizationComponent  implements OnInit{
           this.auth.isloggedin = false;
         }
       });
+  }
+  registration(){
+    if (this.activrout.snapshot.fragment) {
+      this.router.navigate(['/registration', this.id], {
+        queryParamsHandling: 'preserve',
+        fragment: 'saved',
+      });
+    } else {
+      this.router.navigate(['/registration', this.id], {
+        queryParamsHandling: 'preserve',
+      });
+    }
   }
 }

@@ -165,7 +165,43 @@
     }
 
   }
-
+  .dropbtn {
+    cursor: pointer;
+      width: 31px;
+      flex-shrink: 0;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: -90%;
+    font-size: 14px;
+    border-radius: 8px;
+    background-color: #f1f1f1;
+    min-width: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+    display: block;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  
 
 
 }
