@@ -8,7 +8,11 @@
   z-index: 2;
   display: inline-block;
   .active{
-    color: #0AC2A1;  }
+   
+    background-color: #EAEEF4;
+  border-radius: 4px;
+ 
+  }
   .top-bar {
     height: 64px;
     padding: 12px 80px 12px 80px;

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 import { UserDataType } from '../../../core/user.interfaces';
+import { AuthService } from '../../../core/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -29,7 +30,8 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private activrout: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private auth:AuthService
   ) {
     this.dataForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -57,6 +59,7 @@ export class RegistrationComponent implements OnInit {
           });
           if (!user) {
             this.useristaken = false;
+            this.auth.isloggedin=true;
             if (this.id > 0) {
               if (this.activrout.snapshot.fragment) {
                 this.userinfo.saved.push(this.id);
@@ -77,6 +80,7 @@ export class RegistrationComponent implements OnInit {
               .post<UserDataType>('http://localhost:3000/users', this.userinfo)
               .subscribe();
           } else {
+            this.auth.isloggedin=false;
             this.useristaken = true;
           }
         });
@@ -95,4 +99,5 @@ export class RegistrationComponent implements OnInit {
       });
     }
   }
+  
 }

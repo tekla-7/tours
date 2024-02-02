@@ -22,7 +22,7 @@
         border-radius: 8px;
         background: #FFF;
         color: #272727;
-margin-bottom: 136px;
+        margin-bottom: 136px;
 
         div {
             width: 510px;
@@ -90,22 +90,25 @@ margin-bottom: 136px;
             font-style: normal;
             font-weight: 600;
             line-height: 20px;
-cursor: pointer;
+            cursor: pointer;
            
         }
- .regist-button {
-                background-color: rgba(10, 194, 161, 0.80);
-                color: #FFF;
-                margin-bottom: 32px;
-            }
 
-            .login-button {
-                background: none;
-                border: 1px solid #0AC2A1;
-                color: rgba(10, 194, 161, 0.80);
-    }
+        .regist-button {
+            background-color: rgba(10, 194, 161, 0.80);
+            color: #FFF;
+            margin-bottom: 32px;
+        }
+
+        .login-button {
+            background: none;
+            border: 1px solid #0AC2A1;
+            color: rgba(10, 194, 161, 0.80);
+        }
+
         div.inputs {
             margin-bottom: 16px;
+            position: relative;
 
             svg {
                 margin: 10px;
@@ -116,11 +119,13 @@ cursor: pointer;
                 border-left: none;
                 border-right: none;
                 height: 48px;
+                border: none;
                 border-top: 1px solid var(--text-color-2, #656666);
                 border-bottom: 1px solid var(--text-color-2, #656666);
 
                 &:focus {
                     outline: none;
+
                 }
             }
         }
@@ -130,3 +135,30 @@ cursor: pointer;
     }
 
 }
+
+.messige {
+    border: none;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    font-family: "Noto Sans Georgian";
+    font-size: 12px;
+    font-weight: 400;
+    color: red;
+
+    height: 15px;
+    background: #FFF;
+    text-align: center;
+}
+
+.mes-meil {
+    width: 37%;
+}
+
+.mes-password {
+    width: 35%;
+}
+
+
+
+/** Styles to make the demo look better. */

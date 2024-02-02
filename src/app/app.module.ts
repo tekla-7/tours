@@ -36,6 +36,9 @@ import { ContactInformationComponent } from './featuress/page-6/contact-informat
 import { RefundPolicyComponent } from './featuress/page 7/refund-policy/refund-policy.component';
 import { PrivacyComponent } from './featuress/page 7/privacy/privacy.component';
 import { AboutUsComponent } from './featuress/page 7/about-us/about-us.component';
+import { PageNotFoundComponent } from './featuress/page-not-found/page-not-found/page-not-found.component';
+import { FilterPipe } from './core/filter.pipe';
+
 
 
 
@@ -68,7 +71,8 @@ import { AboutUsComponent } from './featuress/page 7/about-us/about-us.component
    RefundPolicyComponent,
    PrivacyComponent,
    AboutUsComponent,
- 
+   PageNotFoundComponent,
+ FilterPipe
   
   ],
   imports: [
@@ -81,7 +85,9 @@ import { AboutUsComponent } from './featuress/page 7/about-us/about-us.component
     MatSlideToggleModule ,
     MatSliderModule,
     MatNativeDateModule,
-    MatMenuModule
+    MatMenuModule,
+   
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

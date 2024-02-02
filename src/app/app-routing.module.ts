@@ -19,6 +19,8 @@ import { ContactInformationComponent } from './featuress/page-6/contact-informat
 import { RefundPolicyComponent } from './featuress/page 7/refund-policy/refund-policy.component';
 import { PrivacyComponent } from './featuress/page 7/privacy/privacy.component';
 import { AboutUsComponent } from './featuress/page 7/about-us/about-us.component';
+import { loginGuard } from './core/login.guard';
+import { PageNotFoundComponent } from './featuress/page-not-found/page-not-found/page-not-found.component';
 
 const routes: Routes = [ 
   { path: '', component: SlideshowComponent },
@@ -38,12 +40,13 @@ const routes: Routes = [
   {path:'history',component:HistoryComponent},
   {path:'update-password',component:UpdatePasswordComponent},
   {path:'credit-card',component:CreditCardComponent},
-]},
+] ,canActivate: [loginGuard]},
 {path:'contact-information',component:ContactInformationComponent},
 {path:'refund-policy', component:RefundPolicyComponent},
 {path:'policy', component:PrivacyComponent},
 {path:'about-us', component:AboutUsComponent},
-
+{path:'not-found',component:PageNotFoundComponent},
+{path:'**',redirectTo:'/not-found'}
 ];
 
 

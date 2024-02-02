@@ -80,12 +80,12 @@ grid-template-columns: 2fr 4fr;
   row-gap: 40px;
 }
 .clear{
+  border: none;
   padding: 10px 0 10px 8px;
-  width: 150px;
-  margin-left: 18%;
+  width: 330px;
+  height: 48px;
   span{
     padding-right: 8px;
-    color: #222;
     font-family: "Noto Sans Georgian";
     font-size: 14px;
     font-style: normal;
@@ -96,7 +96,17 @@ grid-template-columns: 2fr 4fr;
 
     }
 }
+.tc-black{
+  color: #222;
+}
+.bc-green{
+  color: #FFF;
+  border-radius: 8px;
+background: rgba(10, 194, 161, 0.80);
+margin-bottom: 16px;
 
+
+}
 
 .example-h2 {
     margin-left: 10px;
