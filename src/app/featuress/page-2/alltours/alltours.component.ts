@@ -3,13 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { tourDataType } from '../../../core/tour.interfaces';
 import { InformationService } from '../../page-1/slideshow/information.service';
+import { HttpClient } from '@angular/common/http';
+import { Filter } from '../../../core/filter.ts';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-alltours',
   templateUrl: './alltours.component.html',
   styleUrl: './alltours.component.scss',
 })
-export class AlltoursComponent implements OnInit{
+export class AlltoursComponent implements OnInit {
   isChecked = false;
   isActive1 = false;
   isActive2 = false;
@@ -21,28 +24,18 @@ export class AlltoursComponent implements OnInit{
   min = 0;
   thumbLabel = true;
   value = 0;
-  tourlist: {id: Number;
-    title: String;
-    img: String;
-    Oldprice: number;
-    Newprice: number;
-    AdditionalInformation:string[];
-    Dateofaddition: String;
-    Location: String;
-    Difficulty: String;
-    totaldistance: String;
-    Views: number;
-    Rate: String;
-    Thetourincludes: String;
-    category:string;}[]=[];
+  tourlist: Filter[] = [];
+  tourlistfilter: Filter[] = [];
   filterForm: FormGroup;
-  search:boolean[] = []
-  ;
+  search: boolean[] = [];
   ngOnInit(): void {
-    this.tourlist = this.information.get();
+    
   }
-  constructor(private information: InformationService) {
-    this.tourlist = this.information.get();
+  constructor(
+    private information: InformationService,
+    private http: HttpClient,
+    private activrout:ActivatedRoute
+  ) {
     this.filterForm = new FormGroup({
       '1': new FormControl(false),
       '2': new FormControl(false),
@@ -76,6 +69,37 @@ export class AlltoursComponent implements OnInit{
       '30': new FormControl(false),
       '31': new FormControl(false),
     });
+    this.http.get<any>('http://localhost:3000/post').subscribe((elements) => {
+      for (let element of elements) {
+        let obj: Filter = {
+          id: 0,
+          day:0,
+          title: '',
+          Newprice: 0,
+          Dateofaddition: '',
+          Location: '',
+          Difficulty: '',
+          category: '',
+        };
+        obj.day=element.day;
+        obj.category=element.category;
+        obj.id = element.id;
+        obj.title = element.title;
+        obj.img = element.img;
+        obj.Oldprice = element.Oldprice;
+        obj.Newprice = element.Newprice;
+        obj.AdditionalInformation = element.AdditionalInformation;
+        obj.Dateofaddition = element.Dateofaddition;
+        obj.Location = element.Location;
+        obj.Difficulty = element.Difficulty;
+        obj.totaldistance = element.totaldistance;
+        obj.Views = element.Views;
+        obj.Rate = element.Rate;
+        obj.Thetourincludes = element.Thetourincludes;
+        this.tourlistfilter.push(obj);
+        this.tourlist.push(obj);
+      }
+    });
   }
   call(index: number) {
     if (index == 1) {
@@ -93,7 +117,7 @@ export class AlltoursComponent implements OnInit{
     }
   }
   Search() {
-    let arr=[];
+    let arr = [];
     arr.push(
       this.filterForm.get('1')?.value,
       this.filterForm.get('2')?.value,
@@ -125,24 +149,98 @@ export class AlltoursComponent implements OnInit{
       this.filterForm.get('28')?.value,
       this.filterForm.get('29')?.value,
       this.filterForm.get('30')?.value,
-      this.filterForm.get('31')?.value,
+      this.filterForm.get('31')?.value
     );
-    this.search=arr;
-
-
-
-if(this.tourlist){
-
-  console.log(this.tourlist[0].Newprice>0)
-
-
-
-}
-
-
-
-
-
-    
-   }
+    this.search = arr;
+   this.tourlist= this.tourlistfilter
+      .filter((tour) => {
+        return (
+          (tour.Newprice <= 100 && this.search[0]) ||
+          (tour.Newprice > 100 && tour.Newprice <= 200 && this.search[1]) ||
+          (tour.Newprice > 200 && tour.Newprice <= 300 && this.search[2]) ||
+          (tour.Newprice > 300 && this.search[3]) ||
+          (!this.search[0] &&
+            !this.search[1] &&
+            !this.search[2] &&
+            !this.search[3])
+        );
+      })
+      .filter((tour) => {
+        return (
+          (tour.Location == 'იმერეთი' && this.search[4]) ||
+          (tour.Location == 'კახეთი' && this.search[5]) ||
+          (tour.Location == 'აჭარა' && this.search[6])||
+          (tour.Location == 'სვანეთი' && this.search[7])||
+          (tour.Location == 'მცხეთა-მთიანეთი' && this.search[8])||
+          (tour.Location == 'შიდა ქართლი' && this.search[9])||
+          (tour.Location == 'სამცხე-ჯავახეთი' && this.search[10])||
+          (tour.Location == 'გურია' && this.search[11])||
+          (tour.Location == 'რაჭა' && this.search[12])||
+          (tour.Location == 'თბილისი' && this.search[13])||
+          (tour.Location == 'სამეგრელო' && this.search[14])||
+          (tour.Location == 'ლეჩხუმი' && this.search[15])||
+          (!this.search[4] &&
+            !this.search[5] &&
+            !this.search[6] &&
+            !this.search[7]&&
+            !this.search[8]&&
+            !this.search[9]&&
+            !this.search[10]&&
+            !this.search[11]&&
+            !this.search[12]&&
+            !this.search[13]&&
+            !this.search[14]&&
+            !this.search[15])
+        );
+      })
+      .filter((tour) => {
+        return (
+          (tour.category == 'ტბა' && this.search[16]) ||
+          (tour.category == 'ჩანჩქერი' && this.search[17]) ||
+          (tour.category == 'კანიონი' && this.search[18])||
+          (tour.category== 'მთა' && this.search[19])||
+          (tour.category == 'უღელტეხილი' && this.search[20])||
+          (tour.category == 'მღვიმე' && this.search[21])||
+          (tour.category == 'ხეობა' && this.search[22])||
+          (tour.category == 'ეროვნული პარკი' && this.search[23])||
+          (!this.search[16] &&
+            !this.search[17] &&
+            !this.search[18] &&
+            !this.search[19]&&
+            !this.search[20]&&
+            !this.search[21]&&
+            !this.search[22]&&
+            !this.search[23])
+        );
+      })
+      .filter((tour) => {
+        return (
+          (tour.day<=1 && this.search[24]) ||
+          (tour.day>1 &&tour.day<=2  && this.search[25]) ||
+          (tour.day>2 &&tour.day<=3  && this.search[26])||
+          (tour.day>3 && this.search[27])||
+          (!this.search[24] &&
+            !this.search[25] &&
+            !this.search[26] &&
+            !this.search[27])
+        )
+      })
+      .filter((tour) => {
+        return (
+          (tour.Difficulty=='მარტივი' && this.search[28]) ||
+          (tour.Difficulty=='საშუალო'  && this.search[29]) ||
+          (tour.Difficulty=='რთული' && this.search[30])||
+          (!this.search[28] &&
+            !this.search[29] &&
+            !this.search[30]
+          )
+        )
+      })
+  }
+  clear(){
+    const cleararr = new Array(31).fill(false);
+    this.search=cleararr;
+    this.filterForm.reset();
+    this.tourlist=this.tourlistfilter;
+  }
 }

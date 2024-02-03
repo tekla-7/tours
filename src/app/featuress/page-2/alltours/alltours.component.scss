@@ -1,9 +1,10 @@
 .container{
-  margin-top: 249px;
-  margin-bottom: 131px;
+  margin-top: 202px;
+  margin-bottom: 136px;
+  margin-left: 80px;
+  margin-right: 80px;
 .grid{
-display: grid;
-grid-template-columns: 2fr 4fr;
+
 .dropdown-check-list {
     margin-bottom: 16px;
     .anchor {
@@ -78,7 +79,9 @@ grid-template-columns: 2fr 4fr;
   grid-template-columns: auto auto auto;
   column-gap: 24px;
   row-gap: 40px;
+margin-left: 6%;
 }
+
 .clear{
   border: none;
   padding: 10px 0 10px 8px;

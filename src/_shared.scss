@@ -36,3 +36,23 @@
     display: flex;
     align-items: end;
 }
+.error{
+    width: 40%;
+    height: 5%;
+    position: absolute;
+    border-radius: 5px;
+    border: 2px red solid;
+    top: 20%;  
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(234, 69, 69);
+    z-index: 10;
+    opacity: 0.9;
+    text-align: center;
+    color: #f5f2f2;
+    font-family: "Noto Sans Georgian";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+}

@@ -1,34 +1,46 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tourDataType } from '../../../core/tour.interfaces';
-import { of, filter, map, pipe } from 'rxjs';
-import { reduce, tap } from 'rxjs/operators';
+import { Subject, map } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class InformationService {
+  error=new Subject<string>();
   constructor(private http: HttpClient) {}
   get() {
     let arrlist: tourDataType[] = [];
-    this.http.get<any>('http://localhost:3000/post').subscribe((elements) => {
-      for (let element of elements) {
-        let obj: tourDataType = {};
-        obj.id = element.id;
-        obj.title = element.title;
-        obj.img = element.img;
-        obj.Oldprice = element.Oldprice;
-        obj.Newprice = element.Newprice;
-        obj.AdditionalInformation = element.AdditionalInformation;
-        obj.Dateofaddition = element.Dateofaddition;
-        obj.Location = element.Location;
-        obj.Difficulty = element.Difficulty;
-        obj.totaldistance = element.totaldistance;
-        obj.Views = element.Views;
-        obj.Rate = element.Rate;
-        obj.Thetourincludes = element.Thetourincludes;
-        arrlist.push(obj);
+    this.http.get<any>('http://localhost:3000/post').
+    pipe(
+      map(elements=>{
+        let arr: tourDataType[] = [];
+        for (let element of elements) {
+          let obj: tourDataType = {};
+          obj.id = element.id;
+          obj.title = element.title;
+          obj.img = element.img;
+          obj.Oldprice = element.Oldprice;
+          obj.Newprice = element.Newprice;
+          obj.AdditionalInformation = element.AdditionalInformation;
+          obj.Dateofaddition = element.Dateofaddition;
+          obj.Location = element.Location;
+          obj.Difficulty = element.Difficulty;
+          obj.totaldistance = element.totaldistance;
+          obj.Views = element.Views;
+          obj.Rate = element.Rate;
+          obj.Thetourincludes = element.Thetourincludes;
+          arr.push(obj)
+
       }
-    });
+      return arr;}),
+    ).
+    subscribe(
+      elements=> 
+        {arrlist=elements},
+        error=>{
+          this.error.next(error.message);
+        }
+    )
 
     return arrlist;
   }
@@ -54,6 +66,8 @@ export class InformationService {
           obj.Thetourincludes = element[i].Thetourincludes;
           arrlist.push(obj);
         }
+      },error=>{
+        this.error.next(error.message);
       });
     return arrlist;
   }
@@ -77,12 +91,15 @@ export class InformationService {
         obj.Thetourincludes = element[i].Thetourincludes;
         arrlist.push(obj);
       }
+    },error=>{
+      this.error.next(error.message);
     });
     return arrlist;
   }
   Topoffers() {
     let arrlist: tourDataType[] = [];
-    this.http.get<any>('http://localhost:3000/post').subscribe((element) => {
+    this.http.get<any>('http://localhost:3000/post').
+    subscribe((element) => {
       element.sort((a: any, b: any) => {
         const nameA = a.Oldprice - a.Newprice;
         const nameB = b.Oldprice - b.Newprice;
@@ -111,6 +128,8 @@ export class InformationService {
         obj.Thetourincludes = element[i].Thetourincludes;
         arrlist.push(obj);
       }
+    },error=>{
+      this.error.next(error.message);
     });
     return arrlist;
   }
@@ -132,47 +151,11 @@ export class InformationService {
         obj.Views = element.Views;
         obj.Rate = element.Rate;
         obj.Thetourincludes = element.Thetourincludes;
+      },error=>{
+        this.error.next(error.message);
       });
 
     return obj;
   }
-  getlist(id: boolean[]) {
-    let arrlist: tourDataType[] = [];
-
-    this.http
-      .get<any>('http://localhost:3000/post')
-      .pipe( 
-        tap(el=>console.log('thiss isss' + el)),
-        map(element=>element),
-        filter(
-          (num) =>{
-            
-           return (num.Newprice <= 200)
-          }
-        ),
-       
-      )
-      .subscribe((elements) => {
-        console.log('thiss isss' + elements);
-        // for (let element of elements) {
-        //   let obj: tourDataType = {};
-        //   obj.id = element.id;
-        //   obj.title = element.title;
-        //   obj.img = element.img;
-        //   obj.Oldprice = element.Oldprice;
-        //   obj.Newprice = element.Newprice;
-        //   obj.AdditionalInformation = element.AdditionalInformation;
-        //   obj.Dateofaddition = element.Dateofaddition;
-        //   obj.Location = element.Location;
-        //   obj.Difficulty = element.Difficulty;
-        //   obj.totaldistance = element.totaldistance;
-        //   obj.Views = element.Views;
-        //   obj.Rate = element.Rate;
-        //   obj.Thetourincludes = element.Thetourincludes;
-        //   arrlist.push(obj);
-        // }
-      });
-
-    return arrlist;
-  }
+  
 }

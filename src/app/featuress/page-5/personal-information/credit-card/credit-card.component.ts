@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { UserDataType } from '../../../../core/user.interfaces';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Card } from '../../../../core/card.interfaces';
 
 @Component({
   selector: 'app-credit-card',
@@ -10,18 +11,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrl: './credit-card.component.scss'
 })
 export class CreditCardComponent implements OnInit{
-  cardlist: {
-    cardname?: string;
-    cardnumber?: number;
-    cardexpirationdate?: number;
-    cardcvv?: number;
-  }[] = [];
-  cardinfo: {
-    cardname?: string;
-    cardnumber?: number;
-    cardexpirationdate?: number;
-    cardcvv?: number;
-  } = {};
+  cardlist:Card[] = [];
+  cardinfo: Card= {};
   userId:number=0;
   name:string='';
   lastname:string='';

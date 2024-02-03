@@ -19,6 +19,7 @@ export class AboutTourComponent implements OnInit {
   userId: number = 0;
   savedlist: number[] = [];
   index:number=-1;
+  error:string='';
   ngOnInit(): void {
     this.id = this.activrout.snapshot.params['id'];
     this.activrout.queryParams.subscribe((queryParams: Params) => {
@@ -34,7 +35,9 @@ export class AboutTourComponent implements OnInit {
           this.index=this.savedlist.findIndex((element) => element == this.id);
         });
     }
-    
+    this.information.error.subscribe(errorMessage=>{
+      this.error=errorMessage;
+    })
   }
   constructor(
     private information: InformationService,

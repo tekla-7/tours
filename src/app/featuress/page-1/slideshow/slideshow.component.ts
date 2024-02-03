@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { InformationService } from './information.service';
 import { tourDataType } from '../../../core/tour.interfaces';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-slideshow',
   templateUrl: './slideshow.component.html',
@@ -40,10 +41,15 @@ export class SlideshowComponent implements OnInit {
   popularNow: tourDataType[] = [];
   Offeroftheday: tourDataType[] = [];
   Topoffers: tourDataType[] = [];
+  error:string='';
+
   ngOnInit(): void {
     this.interval = setInterval(() => {
       this.next();
     }, 3000);
+    this.information.error.subscribe(errorMessage=>{
+      this.error=errorMessage;
+    })
   }
   constructor(private information: InformationService) {
     this.tourlist = this.information.get();

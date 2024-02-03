@@ -21,9 +21,9 @@
     </div>
   </div>
   <div class="trending">
-    <div class="text flex-center flex-column">
+    <div class="text flex-center flex-column" routerLink="/tours" queryParamsHandling="preserve" fragment="now">
       <div class="popular">პოპულარული ახლა</div>
-      <div class="flex-row-center all">
+      <div class="flex-row-center all" >
         <span>ყველას ნახვა</span>
         <span>
           <svg
@@ -68,7 +68,7 @@
     </div>
   </div>
   <div class="trending">
-    <div class="text flex-center flex-column">
+    <div class="text flex-center flex-column" routerLink="/tours" queryParamsHandling="preserve" fragment="day">
       <div class="popular">დღის შეთავაზებები</div>
       <div class="flex-row-center all">
         <span>ყველას ნახვა</span>
@@ -117,7 +117,7 @@
     
   </div>
   <div class="trending">
-    <div class="text flex-center flex-column">
+    <div class="text flex-center flex-column" routerLink="/tours" queryParamsHandling="preserve" fragment="top">
       <div class="popular">ტოპ შეთავაზებები</div>
       <div class="flex-row-center all">
         <span>ყველას ნახვა</span>
@@ -167,3 +167,4 @@
   
   </div>
 </div>
+<div *ngIf="error" class="error">მოხდა გაუთვალისწინებელი შეცდომა გთხოვთ სცადოთ თავიდან</div>

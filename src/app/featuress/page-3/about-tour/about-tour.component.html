@@ -169,7 +169,7 @@
             <div *ngFor="let el of info; let i = index">
               <div *ngIf="i % 2 == 0; else elseBlock">{{ el }}</div>
               <ng-template #elseBlock>
-                <div class="day">დღე {{  i === 1 ? 1 : (i - 1)  }}</div>
+                <div class="day">დღე {{  i == 1 ? 1 : (i-1)  }}</div>
                 <ul *ngFor="let element of el">
                   <li>{{ element }}</li>
                 </ul>
@@ -391,3 +391,4 @@
   </div>
   <div class="similartour"></div>
 </div>
+<div *ngIf="error" class="error">მოხდა გაუთვალისწინებელი შეცდომა გთხოვთ სცადოთ თავიდან</div>

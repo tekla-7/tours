@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserDataType } from '../../../core/user.interfaces';
+import { Card } from '../../../core/card.interfaces';
 
 @Component({
   selector: 'app-checkout',
@@ -18,18 +19,8 @@ export class CheckoutComponent implements OnInit {
   userId: number = 0;
   tourlist: tourDataType = {};
   cardForm: FormGroup;
-  cardinfo: {
-    cardname?: string;
-    cardnumber?: number;
-    cardexpirationdate?: number;
-    cardcvv?: number;
-  } = {};
-  cardlist: {
-    cardname?: string;
-    cardnumber?: number;
-    cardexpirationdate?: number;
-    cardcvv?: number;
-  }[] = [];
+  cardinfo: Card = {};
+  cardlist:Card[] = [];
   mytourList:number[]=[];
   ngOnInit(): void {
     this.activrout.params.subscribe((parms: Params) => {
@@ -49,6 +40,7 @@ export class CheckoutComponent implements OnInit {
 this.mytourList.push(item);
         }
       });
+    
   }
   constructor(
     private activrout: ActivatedRoute,
