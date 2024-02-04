@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { InformationService } from './information.service';
 import { tourDataType } from '../../../core/tour.interfaces';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription, takeUntil } from 'rxjs';
 @Component({
   selector: 'app-slideshow',
   templateUrl: './slideshow.component.html',
   styleUrl: './slideshow.component.scss',
 })
-export class SlideshowComponent implements OnInit {
+export class SlideshowComponent implements OnInit ,OnDestroy{
   slides = [
     {
       url: '../../../assets/5.jpg',
@@ -41,21 +41,58 @@ export class SlideshowComponent implements OnInit {
   popularNow: tourDataType[] = [];
   Offeroftheday: tourDataType[] = [];
   Topoffers: tourDataType[] = [];
-  error:string='';
+  error: string = '';
+  private _destorySubj$ = new Subject();
 
   ngOnInit(): void {
     this.interval = setInterval(() => {
       this.next();
     }, 3000);
-    this.information.error.subscribe(errorMessage=>{
-      this.error=errorMessage;
-    })
+    this.information.error.subscribe((errorMessage) => {
+      this.error = errorMessage;
+    });
   }
   constructor(private information: InformationService) {
-    this.tourlist = this.information.get();
-    this.popularNow = this.information.popularNow();
-    this.Offeroftheday = this.information.Offeroftheday();
-    this.Topoffers = this.information.Topoffers();
+    this.information.get().subscribe(
+      (elements) => {
+        takeUntil(this._destorySubj$)
+        this.tourlist = elements;
+      },
+      (error) => {
+        this.error = error.message;
+      }
+    );
+    this.information.popularNow().subscribe(
+      (element) => {
+        takeUntil(this._destorySubj$)
+        for (let i = 0; i < 5; i++) {
+          this.popularNow.push(element[i]);
+        }
+      },
+      (error) => {
+        this.error = error.message;
+      }
+    );
+    this.information.get().subscribe(
+      (element) => {
+        takeUntil(this._destorySubj$)
+        for (let i = 1; i < element.length; i += 2) {
+          this.Offeroftheday.push(element[i]);
+        }
+      },
+      (error) => {
+        this.error = error.message;
+      }
+    );
+    this.information.Topoffers().subscribe(
+      (element) => {
+        takeUntil(this._destorySubj$);
+        this.Topoffers = element;
+      },
+      (error) => {
+        this.error = error.message;
+      }
+    );
   }
   next() {
     if (this.currentSlide == this.slides.length) {
@@ -76,11 +113,11 @@ export class SlideshowComponent implements OnInit {
       let obj: tourDataType = this.popularNow[0];
       this.popularNow.splice(0, 1);
       this.popularNow.push(obj);
-    }else if(index==2){
+    } else if (index == 2) {
       let obj: tourDataType = this.Offeroftheday[0];
       this.Offeroftheday.splice(0, 1);
       this.Offeroftheday.push(obj);
-    }else{
+    } else {
       let obj: tourDataType = this.Topoffers[0];
       this.Topoffers.splice(0, 1);
       this.Topoffers.push(obj);
@@ -91,19 +128,20 @@ export class SlideshowComponent implements OnInit {
       let obj: tourDataType = this.popularNow[this.popularNow.length - 1];
       this.popularNow.splice(this.popularNow.length - 1, 1);
       this.popularNow.splice(0, 0, obj);
-    }else if(index==2){
-      let obj:tourDataType = this.Offeroftheday[this.Offeroftheday.length - 1];
+    } else if (index == 2) {
+      let obj: tourDataType = this.Offeroftheday[this.Offeroftheday.length - 1];
       this.Offeroftheday.splice(this.Offeroftheday.length - 1, 1);
       this.Offeroftheday.splice(0, 0, obj);
-    }else{
-      let obj:tourDataType = this.Topoffers[this.Topoffers.length - 1];
+    } else {
+      let obj: tourDataType = this.Topoffers[this.Topoffers.length - 1];
       this.Topoffers.splice(this.Topoffers.length - 1, 1);
       this.Topoffers.splice(0, 0, obj);
     }
-  
   }
-//   onEditItem(i:number){
-// let tourId=this.tourlist[i].id;
+  ngOnDestroy(): void {
+    this._destorySubj$.next(true)
+    this._destorySubj$.complete()
+    this._destorySubj$.unsubscribe()
+  }
 
-//   }
 }

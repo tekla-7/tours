@@ -1,16 +1,18 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 import { UserDataType } from '../../../core/user.interfaces';
 import { AuthService } from '../../../core/auth.service';
+import { Subject, takeUntil } from 'rxjs';
+import { passwordvalidator } from '../../../core/passwordconfirm-validator';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss',
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent implements OnInit , OnDestroy{
   userinfo: UserDataType = {
     email: '',
     password: '',
@@ -27,6 +29,9 @@ export class RegistrationComponent implements OnInit {
   useristaken = false;
   id: number = 0;
   issaved: string = '';
+ error:string='';
+  private _destorySubj$ = new Subject()
+
   constructor(
     private http: HttpClient,
     private activrout: ActivatedRoute,
@@ -36,12 +41,20 @@ export class RegistrationComponent implements OnInit {
     this.dataForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required]),
-      confirmpassword: new FormControl(null),
-    });
+      confirmpassword: new FormControl(null ,[Validators.required]),
+    },
+    {
+      validators: passwordvalidator,
+    }
+    );
   }
   ngOnInit(): void {
     this.activrout.params.subscribe((parms: Params) => {
       this.id = parms['id'];
+      takeUntil(this._destorySubj$)
+    },
+    error=>{
+      this.error=error.message
     });
     this.activrout.snapshot.fragment;
   }
@@ -83,7 +96,11 @@ export class RegistrationComponent implements OnInit {
             this.auth.isloggedin=false;
             this.useristaken = true;
           }
-        });
+          takeUntil(this._destorySubj$);
+        },
+      error=>{
+        this.error=error.message
+      } );
 
     this.dataForm.reset();
   }
@@ -99,5 +116,9 @@ export class RegistrationComponent implements OnInit {
       });
     }
   }
-  
+  ngOnDestroy(): void {
+    this._destorySubj$.next(true);
+    this._destorySubj$.complete();
+    this._destorySubj$.unsubscribe();
+  }
 }

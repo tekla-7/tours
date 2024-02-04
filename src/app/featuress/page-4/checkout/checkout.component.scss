@@ -3,16 +3,26 @@
     padding-right: 80px;
     margin-top: 202px;
 
-    .title {
-        color: #272727;
-        font-family: "Noto Sans Georgian";
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 26px;
-        margin-bottom: 40px;
-    }
+    .credit {
+        width: 510px;
+        margin-bottom: 15px;
 
+        .credit-card {
+            border: 1px solid #BEC3CA;
+            border-radius: 8px;
+            width: 100%;
+            padding: 2px 5px;
+            margin-bottom: 5px;
+cursor: pointer;
+            img {
+                width: 50px;
+                height: 30px;
+                border-radius: 4px;
+                margin-right: 10px;
+            }
+
+        }
+    }
 
     .card {
         display: inline-flex;
@@ -38,7 +48,7 @@
             line-height: 24px;
             padding-bottom: 32px;
             border-bottom: 1px solid #BEC3CA;
-            margin-bottom: 32px;
+            margin-bottom: 20px;
 
             .c-27 {
                 color: rgba(10, 194, 161, 0.80);

@@ -1,22 +1,29 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../core/auth.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UserDataType } from '../../../core/user.interfaces';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-authorization',
   templateUrl: './authorization.component.html',
   styleUrl: './authorization.component.scss',
 })
-export class AuthorizationComponent  implements OnInit{
+export class AuthorizationComponent  implements OnInit, OnDestroy{
   userinfo: { email: string; password: string } = { email: '', password: '' };
   dataForm: FormGroup;
   id:number=0;
+  private _destorySubj$ = new Subject();
+  error:string='';
   ngOnInit(): void {
     this.activrout.params.subscribe((parms:Params)=>{
-      this.id=parms['id']
+      this.id=parms['id'],
+      takeUntil(this._destorySubj$)
+    },error=>{
+      this.error=error.message;
+      
     })
   
   }
@@ -85,7 +92,10 @@ users.saved.push(this.id);
         } else {
           this.auth.isloggedin = false;
         }
-      });
+        takeUntil(this._destorySubj$);
+
+      },
+      error=>{this.error=error.message});
   }
   registration(){
     if (this.activrout.snapshot.fragment) {
@@ -99,4 +109,10 @@ users.saved.push(this.id);
       });
     }
   }
+  ngOnDestroy(): void {
+    this._destorySubj$.next(true)
+    this._destorySubj$.complete()
+    this._destorySubj$.unsubscribe()
+  }
+
 }

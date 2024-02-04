@@ -104,8 +104,9 @@
               <input type="password" placeholder="პაროლი" formControlName="password">
           </span>
       </div>
-       <button type="submit" class="regist-button">შესვლა</button>
+       <button type="submit" class="regist-button" [disabled]="dataForm.invalid">შესვლა</button>
       </form>
       <button class="login-button"  (click)="registration()">რეგისტრაცია</button>
     </div>
 </div>
+<div *ngIf="error" class="error">მოხდა გაუთვალისწინებელი შეცდომა გთხოვთ სცადოთ თავიდან</div>

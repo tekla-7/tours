@@ -3,7 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { tourDataType } from '../../../core/tour.interfaces';
 import { InformationService } from '../../page-1/slideshow/information.service';
 import { AuthService } from '../../../core/auth.service';
-import { Subject } from 'rxjs';
+import { Subject, map, takeUntil } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserDataType } from '../../../core/user.interfaces';
@@ -20,27 +20,52 @@ export class CheckoutComponent implements OnInit {
   tourlist: tourDataType = {};
   cardForm: FormGroup;
   cardinfo: Card = {};
-  cardlist:Card[] = [];
-  mytourList:number[]=[];
+  cardlist: Card[] = [];
+  mytourList: number[] = [];
+  error: string = '';
+  private _destorySubj$ = new Subject();
   ngOnInit(): void {
-    this.activrout.params.subscribe((parms: Params) => {
-      this.id = parms['id'];
-    });
-    this.tourlist = this.information.getone(this.id );
-    this.activrout.queryParams.subscribe((queryParams: Params) => {
-      this.userId = queryParams['userId'];
-    });
+    this.activrout.params.subscribe(
+      (parms: Params) => {
+        this.id = parms['id'];
+        takeUntil(this._destorySubj$);
+      },
+      (error) => {
+        this.error = error.message;
+      }
+    );
+    this.tourlist = this.information.getone(this.id);
+    this.activrout.queryParams.subscribe(
+      (queryParams: Params) => {
+        this.userId = queryParams['userId'];
+        takeUntil(this._destorySubj$);
+      },
+      (error) => {
+        this.error = error.message;
+      }
+    );
     this.http
       .get<UserDataType>('http://localhost:3000/users/' + this.userId)
-      .subscribe((element) => {
-        for (const item of element.card) {
-          this.cardlist.push(item);
+      .pipe(
+        map((element) => {
+          for (const item of element.card) {
+            this.cardlist.push(item);
+          }
+          for (const item of element.mytour) {
+            this.mytourList.push(item);
+          }
+          return 'successful';
+        })
+      )
+      .subscribe(
+        (element) => {
+          console.log(element);
+          takeUntil(this._destorySubj$);
+        },
+        (error) => {
+          this.error = error.message;
         }
-        for(const item of element.mytour){
-this.mytourList.push(item);
-        }
-      });
-    
+      );
   }
   constructor(
     private activrout: ActivatedRoute,
@@ -64,19 +89,39 @@ this.mytourList.push(item);
     this.cardinfo.cardname = this.cardForm.get('cardname')?.value;
     this.cardinfo.cardnumber = this.cardForm.get('cardnumber')?.value;
     this.cardinfo.cardexpirationdate =
-    this.cardForm.get('cardexpirationdate')?.value;
+      this.cardForm.get('cardexpirationdate')?.value;
     this.cardinfo.cardcvv = this.cardForm.get('cardcvv')?.value;
     this.cardlist.push(this.cardinfo);
     this.mytourList.push(+this.id);
     if (this.cardForm.get('saved')?.value) {
       this.http
         .patch('http://localhost:3000/users/' + this.userId, {
-          card: this.cardlist,mytour: this.mytourList
+          card: this.cardlist,
+          mytour: this.mytourList,
         })
-        .subscribe();
+        .subscribe(
+          (element) => {
+            takeUntil(this._destorySubj$);
+          },
+          (error) => {
+            this.error = error.message;
+          }
+        );
     }
     this.router.navigate(['successful-operation'], {
       queryParamsHandling: 'preserve',
     });
+  }
+  usemycard(i:number){
+    this.cardForm.get('cardname')?.setValue(this.cardlist[i].cardname);
+    this.cardForm.get('cardnumber')?.setValue(this.cardlist[i].cardnumber);
+    this.cardForm.get('cardexpirationdate')?.setValue(this.cardlist[i].cardexpirationdate);
+    this.cardForm.get('cardcvv')?.setValue(this.cardlist[i].cardcvv);
+    this.cardForm.get('saved')?.setValue(false);
+  }
+  ngOnDestroy(): void {
+    this._destorySubj$.next(true);
+    this._destorySubj$.complete();
+    this._destorySubj$.unsubscribe();
   }
 }

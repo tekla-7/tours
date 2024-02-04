@@ -1,18 +1,19 @@
 import { NgLocaleLocalization } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { tourDataType } from '../../../core/tour.interfaces';
 import { InformationService } from '../../page-1/slideshow/information.service';
 import { HttpClient } from '@angular/common/http';
 import { Filter } from '../../../core/filter.ts';
 import { ActivatedRoute } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-alltours',
   templateUrl: './alltours.component.html',
   styleUrl: './alltours.component.scss',
 })
-export class AlltoursComponent implements OnInit {
+export class AlltoursComponent implements OnInit ,OnDestroy{
   isChecked = false;
   isActive1 = false;
   isActive2 = false;
@@ -28,6 +29,9 @@ export class AlltoursComponent implements OnInit {
   tourlistfilter: Filter[] = [];
   filterForm: FormGroup;
   search: boolean[] = [];
+  error:string='';
+  private _destorySubj$ = new Subject();
+
   ngOnInit(): void {
     
   }
@@ -70,6 +74,7 @@ export class AlltoursComponent implements OnInit {
       '31': new FormControl(false),
     });
     this.http.get<any>('http://localhost:3000/post').subscribe((elements) => {
+      takeUntil(this._destorySubj$);
       for (let element of elements) {
         let obj: Filter = {
           id: 0,
@@ -99,7 +104,10 @@ export class AlltoursComponent implements OnInit {
         this.tourlistfilter.push(obj);
         this.tourlist.push(obj);
       }
-    });
+    },error=>{
+      this.error=error.message;
+    }
+    );
   }
   call(index: number) {
     if (index == 1) {
@@ -243,4 +251,10 @@ export class AlltoursComponent implements OnInit {
     this.filterForm.reset();
     this.tourlist=this.tourlistfilter;
   }
+  ngOnDestroy(): void {
+    this._destorySubj$.next(true)
+    this._destorySubj$.complete()
+    this._destorySubj$.unsubscribe()
+  }
+
 }

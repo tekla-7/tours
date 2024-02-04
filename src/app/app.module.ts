@@ -23,15 +23,15 @@ import { AuthorizationComponent } from './featuress/page-4/authorization/authori
 import { CheckoutComponent } from './featuress/page-4/checkout/checkout.component';
 import { SuccessfulOperationComponent } from './featuress/page-4/successful-operation/successful-operation.component';
 import { PersonalInformationComponent } from './featuress/page-5/personal-information/personal-information.component';
-import { MyTourComponent } from './featuress/page-5/personal-information/my-tour/my-tour.component';
-import { MyDataComponent } from './featuress/page-5/personal-information/my-data/my-data.component';
-import { CardComponent } from './featuress/page-5/personal-information/my-tour/card/card.component';
-import { SavedComponent } from './featuress/page-5/personal-information/saved/saved.component';
-import { HistoryComponent } from './featuress/page-5/personal-information/history/history.component';
-import { UpdatePasswordComponent } from './featuress/page-5/personal-information/update-password/update-password.component';
+// import { MyTourComponent } from './featuress/page-5/personal-information/my-tour/my-tour.component';
+// import { MyDataComponent } from './featuress/page-5/personal-information/my-data/my-data.component';
+// import { CardComponent } from './featuress/page-5/personal-information/my-tour/card/card.component';
+// import { SavedComponent } from './featuress/page-5/personal-information/saved/saved.component';
+// import { HistoryComponent } from './featuress/page-5/personal-information/history/history.component';
+// import { UpdatePasswordComponent } from './featuress/page-5/personal-information/update-password/update-password.component';
 import {MatMenuModule} from '@angular/material/menu';
-import { CreditCardComponent } from './featuress/page-5/personal-information/credit-card/credit-card.component';
-import { CreditComponent } from './featuress/page-5/personal-information/credit-card/credit/credit.component';
+// import { CreditCardComponent } from './featuress/page-5/personal-information/credit-card/credit-card.component';
+// import { CreditComponent } from './featuress/page-5/personal-information/credit-card/credit/credit.component';
 import { ContactInformationComponent } from './featuress/page-6/contact-information/contact-information.component';
 import { RefundPolicyComponent } from './featuress/page 7/refund-policy/refund-policy.component';
 import { PrivacyComponent } from './featuress/page 7/privacy/privacy.component';
@@ -58,15 +58,15 @@ import { FilterPipe } from './core/filter.pipe';
    AuthorizationComponent,
    CheckoutComponent,
    SuccessfulOperationComponent,
-   PersonalInformationComponent,
-   MyTourComponent,
-   MyDataComponent,
-   CardComponent,
-   SavedComponent,
-   HistoryComponent,
-   UpdatePasswordComponent,
-   CreditCardComponent,
-   CreditComponent,
+  //  PersonalInformationComponent,
+  //  MyTourComponent,
+  //  MyDataComponent,
+  //  CardComponent,
+  //  SavedComponent,
+  //  HistoryComponent,
+  //  UpdatePasswordComponent,
+  //  CreditCardComponent,
+  //  CreditComponent,
    ContactInformationComponent,
    RefundPolicyComponent,
    PrivacyComponent,

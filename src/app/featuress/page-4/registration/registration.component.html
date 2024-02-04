@@ -117,10 +117,11 @@
             <input type="password" placeholder="გაიმეორეთ პაროლი" formControlName="confirmpassword">
         </span>
     </div>
-     <button class="regist-button " type="submit" >რეგისტრაცია</button>
+     <button class="regist-button " type="submit" [disabled]="dataForm.invalid" >რეგისტრაცია</button>
     </form>
 
     <button class="login-button" (click)="autorization()">ავტორიზაცია</button>
   </div>
 
 </div>
+<div *ngIf="error" class="error">მოხდა გაუთვალისწინებელი შეცდომა გთხოვთ სცადოთ თავიდან</div>

@@ -1,19 +1,23 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UserDataType } from '../../../../core/user.interfaces';
 import { tourDataType } from '../../../../core/tour.interfaces';
 import { InformationService } from '../../../page-1/slideshow/information.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-saved',
   templateUrl: './saved.component.html',
   styleUrl: './saved.component.scss',
 })
-export class SavedComponent implements OnInit {
+export class SavedComponent implements OnInit ,OnDestroy{
   userId: number = 0;
   mylist: number[] = [];
   tourlist: tourDataType[] = [];
+  error:string='';
+  private _destorySubj$ = new Subject()
+
   ngOnInit(): void {
     
    }
@@ -25,7 +29,9 @@ export class SavedComponent implements OnInit {
   ) {
     this.activrout.queryParams.subscribe((queryParams: Params) => {
       this.userId = queryParams['userId'];
-    });
+      takeUntil(this._destorySubj$)
+    },error=>{this.error=error.message}
+    );
     this.http
       .get<UserDataType>('http://localhost:3000/users/' + this.userId)
       .subscribe((element) => {
@@ -33,9 +39,17 @@ export class SavedComponent implements OnInit {
           this.tourlist.push(this.information.getone(item));
           this.mylist.push(item);
         }  
-      });
+        takeUntil(this._destorySubj$)
+
+      },
+      error=>{this.error=error.message});
       
   
+}
+ngOnDestroy(): void {
+  this._destorySubj$.next(true)
+  this._destorySubj$.complete()
+  this._destorySubj$.unsubscribe()
 }
 
 }

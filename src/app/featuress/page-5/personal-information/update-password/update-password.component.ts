@@ -1,27 +1,36 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { UserDataType } from '../../../../core/user.interfaces';
+import { Subject, takeUntil } from 'rxjs';
+import { passwordvalidator } from '../../../../core/passwordconfirm-validator';
 
 @Component({
   selector: 'app-update-password',
   templateUrl: './update-password.component.html',
   styleUrl: './update-password.component.scss',
 })
-export class UpdatePasswordComponent implements OnInit{
+export class UpdatePasswordComponent implements OnInit , OnDestroy{
   passwordform: FormGroup;
   userId: number = 0;
   oldpassword: string = '';
   newpassword: string = '';
   confirmpassword: string = '';
   userpassword: string = '';
+  error:string='';
+  private _destorySubj$ = new Subject()
+
   constructor(private activrout: ActivatedRoute, private http: HttpClient) {
     this.passwordform = new FormGroup({
       oldpassword: new FormControl(null),
-      newpassword: new FormControl(null),
+      password: new FormControl(null),
       confirmpassword: new FormControl(null),
-    });
+    },
+    {
+      validators: passwordvalidator,
+    }
+    );
     this.activrout.queryParams.subscribe((queryParams: Params) => {
       this.userId = queryParams['userId'];
     });
@@ -31,12 +40,16 @@ export class UpdatePasswordComponent implements OnInit{
       .get<UserDataType>('http://localhost:3000/users/' + this.userId)
       .subscribe((element) => {
         this.userpassword = element.password;
+        takeUntil(this._destorySubj$)
+      },
+      error=>{
+        this.error=error.message
       });
   }
   
   changepassword() {
     this.oldpassword = this.passwordform.get('oldpassword')?.value;
-    this.newpassword = this.passwordform.get('newpassword')?.value;
+    this.newpassword = this.passwordform.get('password')?.value;
     this.confirmpassword = this.passwordform.get('confirmpassword')?.value;
     if (this.userpassword == this.oldpassword) {
       this.userpassword=this.newpassword;
@@ -45,8 +58,19 @@ export class UpdatePasswordComponent implements OnInit{
           password: this.newpassword,
           confirmpassword: this.confirmpassword,
         })
-        .subscribe();
+        .subscribe(
+          element=>{console.log("successful"),
+          takeUntil(this._destorySubj$)
+          },
+          error=>{this.error=error.message}
+        );
     }
     this.passwordform.reset();
   }
+  ngOnDestroy(): void {
+    this._destorySubj$.next(true)
+    this._destorySubj$.complete()
+    this._destorySubj$.unsubscribe()
+  }
+
 }
