@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { UserDataType } from '../../../../core/user.interfaces';
-import { tourDataType } from '../../../../core/tour.interfaces';
-import { InformationService } from '../../../page-1/slideshow/information.service';
+import { UserDataType } from '../../../../core/interfaces/user.interfaces';
+import { tourDataType } from '../../../../core/interfaces/tour.interfaces';
+import { InformationService } from '../../../page-1/services/information.service';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({

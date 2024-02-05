@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
-import { UserDataType } from '../../../../core/user.interfaces';
+import { UserDataType } from '../../../../core/interfaces/user.interfaces';
 import { Subject, takeUntil } from 'rxjs';
-import { passwordvalidator } from '../../../../core/passwordconfirm-validator';
+import { passwordvalidator } from '../../../../core/interfaces/passwordconfirm-validator';
 
 @Component({
   selector: 'app-update-password',

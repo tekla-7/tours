@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../../core/auth.service';
+import { AuthService } from '../../../../core/service/auth.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { UserDataType } from '../../../core/user.interfaces';
+import { UserDataType } from '../../../../core/interfaces/user.interfaces';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({

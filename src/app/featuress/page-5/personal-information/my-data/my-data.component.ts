@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
-import { UserDataType } from '../../../../core/user.interfaces';
+import { UserDataType } from '../../../../core/interfaces/user.interfaces';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({

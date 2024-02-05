@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../core/auth.service';
+import { AuthService } from '../../../core/service/auth.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { UserDataType } from '../../../core/user.interfaces';
+import { UserDataType } from '../../../core/interfaces/user.interfaces';
 
 @Component({
   selector: 'app-personal-information',

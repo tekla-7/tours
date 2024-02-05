@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { UserDataType } from '../../../../core/user.interfaces';
+import { UserDataType } from '../../../../core/interfaces/user.interfaces';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Card } from '../../../../core/card.interfaces';
+import { Card } from '../../../../core/interfaces/card.interfaces';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({

@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Route, Router } from '@angular/router';
-import { UserDataType } from '../../../core/user.interfaces';
-import { AuthService } from '../../../core/auth.service';
+import { UserDataType } from '../../../../core/interfaces/user.interfaces';
+import { AuthService } from '../../../../core/service/auth.service';
 import { Subject, takeUntil } from 'rxjs';
-import { passwordvalidator } from '../../../core/passwordconfirm-validator';
+import { passwordvalidator } from '../../../../core/interfaces/passwordconfirm-validator';
 
 @Component({
   selector: 'app-registration',

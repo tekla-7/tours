@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tourDataType } from '../../../core/tour.interfaces';
+import { tourDataType } from '../../../core/interfaces/tour.interfaces';
 import { Subject, map } from 'rxjs';
 @Injectable({
   providedIn: 'root',

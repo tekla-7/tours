@@ -8,8 +8,8 @@
     padding-top: 0;
      background-color: #EAEEF4;
  }
- @import './reset';
- @import './shared';
+ @import './app/shared/reset';
+ @import './app/shared/shared';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

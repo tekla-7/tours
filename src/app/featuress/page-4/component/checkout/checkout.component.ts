@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { tourDataType } from '../../../core/tour.interfaces';
-import { InformationService } from '../../page-1/slideshow/information.service';
-import { AuthService } from '../../../core/auth.service';
+import { tourDataType } from '../../../../core/interfaces/tour.interfaces';
+import { InformationService } from '../../../page-1/services/information.service';
+import { AuthService } from '../../../../core/service/auth.service';
 import { Subject, map, takeUntil } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserDataType } from '../../../core/user.interfaces';
-import { Card } from '../../../core/card.interfaces';
+import { UserDataType } from '../../../../core/interfaces/user.interfaces';
+import { Card } from '../../../../core/interfaces/card.interfaces';
 
 @Component({
   selector: 'app-checkout',

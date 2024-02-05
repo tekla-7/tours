@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { tourDataType } from '../../../../core/tour.interfaces';
+import { tourDataType } from '../../../../core/interfaces/tour.interfaces';
 
 @Component({
   selector: 'app-tour-card',

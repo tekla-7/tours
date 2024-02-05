@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { UserDataType } from '../../core/user.interfaces';
-import { AuthService } from '../../core/auth.service';
+import { UserDataType } from '../../core/interfaces/user.interfaces';
+import { AuthService } from '../../core/service/auth.service';
 
 @Component({
   selector: 'app-top-navigation-bar',

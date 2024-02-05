@@ -1,10 +1,10 @@
 import { NgLocaleLocalization } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { tourDataType } from '../../../core/tour.interfaces';
-import { InformationService } from '../../page-1/slideshow/information.service';
+import { tourDataType } from '../../../core/interfaces/tour.interfaces';
+import { InformationService } from '../../page-1/services/information.service';
 import { HttpClient } from '@angular/common/http';
-import { Filter } from '../../../core/filter.ts';
+import { Filter } from '../../../core/interfaces/filter.ts';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 

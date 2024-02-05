@@ -789,6 +789,21 @@
       "mytour": [],
       "oldtour": [],
       "id": 1
+    },
+    {
+      "email": "te@ge.ge",
+      "password": "111",
+      "confirmpassword": "111",
+      "card": [],
+      "name": "tee",
+      "lastname": "aaaa",
+      "phone": "055555",
+      "saved": [],
+      "mytour": [
+        9
+      ],
+      "oldtour": [],
+      "id": 2
     }
   ]
 }

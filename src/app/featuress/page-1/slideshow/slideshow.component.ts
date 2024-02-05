@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { InformationService } from './information.service';
-import { tourDataType } from '../../../core/tour.interfaces';
+import { InformationService } from '../services/information.service';
+import { tourDataType } from '../../../core/interfaces/tour.interfaces';
 import { Subject, Subscription, takeUntil } from 'rxjs';
 @Component({
   selector: 'app-slideshow',
