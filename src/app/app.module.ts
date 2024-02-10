@@ -16,6 +16,8 @@ import { AboutUsComponent } from './featuress/page 7/component/about-us/about-us
 import { FilterPipe } from './core/guard-pipe/filter.pipe';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 
 
@@ -39,7 +41,8 @@ FooterComponent,
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterTestingModule,
 
   ],
   providers: [],

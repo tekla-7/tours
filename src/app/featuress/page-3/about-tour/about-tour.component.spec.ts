@@ -1,6 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 
 import { AboutTourComponent } from './about-tour.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AboutTourComponent', () => {
   let component: AboutTourComponent;
@@ -8,7 +11,8 @@ describe('AboutTourComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AboutTourComponent]
+      declarations: [AboutTourComponent],
+      imports:[RouterTestingModule , HttpClientTestingModule],
     })
     .compileComponents();
     

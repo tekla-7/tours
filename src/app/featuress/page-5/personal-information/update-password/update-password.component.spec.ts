@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UpdatePasswordComponent } from './update-password.component';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('UpdatePasswordComponent', () => {
   let component: UpdatePasswordComponent;
@@ -8,7 +12,9 @@ describe('UpdatePasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UpdatePasswordComponent]
+      declarations: [UpdatePasswordComponent],
+      imports:[HttpClientTestingModule , RouterTestingModule , FormsModule,
+        ReactiveFormsModule]
     })
     .compileComponents();
     

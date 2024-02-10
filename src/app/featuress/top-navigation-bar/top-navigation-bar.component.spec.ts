@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TopNavigationBarComponent } from './top-navigation-bar.component';
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('TopNavigationBarComponent', () => {
   let component: TopNavigationBarComponent;
@@ -8,7 +11,8 @@ describe('TopNavigationBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TopNavigationBarComponent]
+      declarations: [TopNavigationBarComponent],
+      imports:[RouterTestingModule , HttpClientTestingModule]
     })
     .compileComponents();
     

@@ -48,9 +48,9 @@ export class SlideshowComponent implements OnInit ,OnDestroy{
     this.interval = setInterval(() => {
       this.next();
     }, 3000);
-    this.information.error.subscribe((errorMessage) => {
-      this.error = errorMessage;
-    });
+    // this.information.error.subscribe((errorMessage) => {
+    //   this.error = errorMessage;
+    // });
   }
   constructor(private information: InformationService) {
     this.information.get().subscribe(

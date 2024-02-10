@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyDataComponent } from './my-data.component';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('MyDataComponent', () => {
   let component: MyDataComponent;
@@ -8,7 +12,9 @@ describe('MyDataComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MyDataComponent]
+      declarations: [MyDataComponent],
+      imports:[RouterModule , RouterTestingModule , HttpClientTestingModule , FormsModule,
+        ReactiveFormsModule]
     })
     .compileComponents();
     

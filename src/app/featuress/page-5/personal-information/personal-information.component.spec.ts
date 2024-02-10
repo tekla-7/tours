@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PersonalInformationComponent } from './personal-information.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PersonalInformationComponent', () => {
   let component: PersonalInformationComponent;
@@ -8,7 +11,8 @@ describe('PersonalInformationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PersonalInformationComponent]
+      declarations: [PersonalInformationComponent],
+      imports: [HttpClientModule , RouterTestingModule], 
     })
     .compileComponents();
     
