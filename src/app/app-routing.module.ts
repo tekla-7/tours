@@ -12,14 +12,14 @@ import { PageNotFoundComponent } from './core/components/page-not-found/page-not
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     loadChildren: () =>
       import('./featuress/page-1/module/page-1.module').then(
         (m) => m.Page1Module
-      ),
+      )
   },
   {
-    path: 'tours',
+    path: "tours",
     loadChildren: () =>
       import('./featuress/page-2/module/page-2.module').then(
         (m) => m.Page2Module

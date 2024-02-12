@@ -17,11 +17,12 @@ import { InformationService } from '../services/information.service';
 describe('SlideshowComponent', () => {
   let component: SlideshowComponent;
   let fixture: ComponentFixture<SlideshowComponent>;
-  let informationService = InformationService;
+  // let informationService = InformationService;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SlideshowComponent],
       imports: [HttpClientTestingModule],
+      providers:[{provide:InformationService,useClass:MockInformationService}]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SlideshowComponent);
@@ -33,6 +34,9 @@ describe('SlideshowComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it("should", fakeAsync(()=>{
+
+  }))
   it('should called next method in every 3000', fakeAsync(() => {
     spyOn(component, 'next');
     component.ngOnInit();

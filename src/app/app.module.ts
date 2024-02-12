@@ -17,6 +17,7 @@ import { FilterPipe } from './core/guard-pipe/filter.pipe';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { SearchTourComponent } from './featuress/top-navigation-bar/search-tour/search-tour.component';
 
 
 
@@ -35,7 +36,8 @@ FooterComponent,
    RefundPolicyComponent,
    PrivacyComponent,
    AboutUsComponent,
-  
+   SearchTourComponent,
+   FilterPipe
   ],
   imports: [
     BrowserModule,

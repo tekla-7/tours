@@ -18,7 +18,7 @@ import { SharedModule } from '../../../shared/shared.module';
     CommonModule,
     SharedModule,
     RouterModule.forChild([
-        {path:'',component:SlideshowComponent}
+        {path:'',component:SlideshowComponent }
     ])
 
   ]

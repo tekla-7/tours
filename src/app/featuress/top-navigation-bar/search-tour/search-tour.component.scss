@@ -1,0 +1,13 @@
+.card{
+    width: 100%;
+display: flex;
+direction: row;
+margin-bottom: 16px;
+cursor: pointer;
+    img{
+        width: 76px;
+        height: 44px;
+        border-radius: 8px;
+        margin-right:8px ;
+    }
+}
